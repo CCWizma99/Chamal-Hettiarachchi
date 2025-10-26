@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Chamal Hettiarachchi - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
+<body>
+    <div class="floating-bg" aria-hidden="true">
+        <canvas id="floatingCircles"></canvas>
+      </div>
+      <!-- <script src="./script.js"></script> -->
+
+    <div class="content horizontal-scroll-container scrollbar-thin">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+            <i class="fa-solid fa-sun"></i>
+        </button>
+
+        <!-- Enhanced Navbar - Desktop -->
+        <nav class="desktop-nav">
+            <a href="#home" class="nav-item" data-section="home">
+                <div class="nav-dot active"></div>
+                <span class="nav-label active">Home</span>
+            </a>
+            <a href="#projects" class="nav-item" data-section="projects">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Projects</span>
+            </a>
+            <a href="#skills" class="nav-item" data-section="skills">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Skills</span>
+            </a>
+            <a href="#about" class="nav-item" data-section="about">
+                <div class="nav-dot"></div>
+                <span class="nav-label">About</span>
+            </a>
+            <a href="#contact" class="nav-item" data-section="contact">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Contact</span>
+            </a>
+        </nav>
+
+        <!-- Mobile Bottom Navigation -->
+        <nav class="mobile-nav">
+            <div class="nav-items">
+                <a href="#home" class="nav-item" data-section="home">
+                    <div class="nav-dot active"></div>
+                    <span class="nav-label active">Home</span>
+                </a>
+                <a href="#projects" class="nav-item" data-section="projects">
+                    <div class="nav-dot"></div>
+                    <span class="nav-label">Projects</span>
+                </a>
+                <a href="#skills" class="nav-item" data-section="skills">
+                    <div class="nav-dot"></div>
+                    <span class="nav-label">Skills</span>
+                </a>
+                <a href="#about" class="nav-item" data-section="about">
+                    <div class="nav-dot"></div>
+                    <span class="nav-label">About</span>
+                </a>
+                <a href="#contact" class="nav-item" data-section="contact">
+                    <div class="nav-dot"></div>
+                    <span class="nav-label">Contact</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Scroll Hint -->
+        <div class="scroll-hint" id="scrollHint">
+            <div class="scroll-hint-text">Scroll horizontally to explore</div>
+            <div class="scroll-hint-animation">
+                <span class="scroll-hint-arrow"><i class="fa-solid fa-hand-point-right"></i></span>
+                <div class="scroll-hint-dots">
+                    <div class="scroll-hint-dot"></div>
+                    <div class="scroll-hint-dot"></div>
+                    <div class="scroll-hint-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-bg-elements">
+                <div class="hero-bg-element"></div>
+                <div class="hero-bg-element"></div>
+            </div>
+            
+            <div class="hero-content">
+                <!-- Profile Image -->
+                <div class="profile-image">
+                    <div class="profile-image-wrapper">
+                        <div class="profile-image-glow"></div>
+                        <div class="profile-image-inner">
+                            <img src="./prof.png" alt="Chamal Hettiarachchi">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="hero-text">
+                    <div class="availability-badge">Available for opportunities</div>
+                    
+                    <h1 class="hero-title">Hi, I'm <span>Chamal Hettiarachchi</span></h1>
+                    
+                    <p class="hero-description">
+                        I build systems, ideas, and people. I believe in automation, efficiency, and building what moves the world forward.                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            View My Work
+                            <span>→</span>
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            Contact Me
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects & Learnings Section -->
+        <section id="projects" class="projects-section">
+            <div class="projects-header">
+                <h2 class="section-title">Projects & Learnings</h2>
+                <p class="section-subtitle">Featured work and my learning journey</p>
+            </div>
+            
+            <div class="projects-content scrollbar-thin">
+                <!-- Highlight Projects -->
+                <div class="featured-projects">
+                    <h3 class="projects-subtitle">
+                        <span><i class="fa-solid fa-star"></i></span>
+                        Featured Projects
+                    </h3>
+                    <div class="projects-grid">
+                        <!-- Project 1 -->
+                        <a href="#" class="project-card">
+                            <div class="project-image">
+                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80" alt="University Sports Management System">
+                                <div class="project-image-overlay"></div>
+                                <div class="project-featured-badge">★ Featured</div>
+                            </div>
+
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <div class="project-icon">
+                                        <span><i class="fa-solid fa-volleyball"></i></span>
+                                    </div>
+                                    <span class="project-link">↗</span>
+                                </div>
+                                
+                                <h4 class="project-name">University Sports Management System</h4>
+                                
+                                <p class="project-description">
+                                    A comprehensive system to manage university sports events, reservations, and participant tracking.
+                                </p>
+                                
+                                <div class="project-tech">
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">MySQL</span>
+                                    <span class="tech-tag">Brevo</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <!-- Project 4 -->
+                        <a href="#" class="project-card">
+                            <div class="project-image">
+                                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80" alt="AI Chatbot Assistant">
+                                <div class="project-image-overlay"></div>
+                                <div class="project-featured-badge">★ Featured</div>
+                            </div>
+
+                            <div class="project-content">
+                                <div class="project-header">
+                                    <div class="project-icon">
+                                        <span><i class="fa-solid fa-robot"></i></span>
+                                    </div>
+                                    <span class="project-link">↗</span>
+                                </div>
+                                
+                                <h4 class="project-name">AI Chatbot Assistant</h4>
+                                
+                                <p class="project-description">
+                                    Intelligent chatbot using natural language processing for customer support automation.
+                                </p>
+                                
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">TensorFlow</span>
+                                    <span class="tech-tag">+1</span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Learning Journey -->
+                <div class="learnings-section">
+                    <h3 class="learnings-subtitle">
+                        <span><i class="fa-solid fa-rocket"></i></span>
+                        Learning Journey
+                    </h3>
+                    <div class="learnings-timeline">
+                        <div class="timeline-line"></div>
+                        
+                        <!-- Learning Item 1 -->
+                        <div class="learning-item">
+                            <div class="learning-marker completed"></div>
+                            
+                            <div class="learning-card">
+                                <div class="learning-header">
+                                    <div>
+                                        <div class="learning-category">
+                                            <span class="category-tag">Frontend</span>
+                                        </div>
+                                        <h4 class="learning-topic">React Hooks Deep Dive</h4>
+                                        <p class="learning-date">📅 October 15, 2024</p>
+                                    </div>
+                                    <span class="learning-toggle">▼</span>
+                                </div>
+                                
+                                <div class="learning-details" style="display: none;">
+                                    <p class="learning-description">
+                                        Explored advanced React Hooks patterns including useCallback, useMemo, and custom hooks. Learned about performance optimization techniques and when to use each hook effectively.
+                                    </p>
+                                    <div class="learning-resources">
+                                        <h5>Resources Used:</h5>
+                                        <ul>
+                                            <li>React Documentation</li>
+                                            <li>YouTube Tutorials</li>
+                                            <li>Practice Projects</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Learning Item 2 -->
+                        <div class="learning-item">
+                            <div class="learning-marker completed"></div>
+                            
+                            <div class="learning-card">
+                                <div class="learning-header">
+                                    <div>
+                                        <div class="learning-category">
+                                            <span class="category-tag">Backend</span>
+                                        </div>
+                                        <h4 class="learning-topic">Database Design Principles</h4>
+                                        <p class="learning-date">📅 September 20, 2024</p>
+                                    </div>
+                                    <span class="learning-toggle">▼</span>
+                                </div>
+                                
+                                <div class="learning-details" style="display: none;">
+                                    <p class="learning-description">
+                                        Studied normalization, indexing strategies, and query optimization. Implemented various database schemas and learned about ACID properties and transactions.
+                                    </p>
+                                    <div class="learning-resources">
+                                        <h5>Resources Used:</h5>
+                                        <ul>
+                                            <li>Database Systems Book</li>
+                                            <li>PostgreSQL Documentation</li>
+                                            <li>Online Courses</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Learning Item 3 -->
+                        <div class="learning-item">
+                            <div class="learning-marker completed"></div>
+                            
+                            <div class="learning-card">
+                                <div class="learning-header">
+                                    <div>
+                                        <div class="learning-category">
+                                            <span class="category-tag">DevOps</span>
+                                        </div>
+                                        <h4 class="learning-topic">Docker & Containerization</h4>
+                                        <p class="learning-date">📅 August 10, 2024</p>
+                                    </div>
+                                    <span class="learning-toggle">▼</span>
+                                </div>
+                                
+                                <div class="learning-details" style="display: none;">
+                                    <p class="learning-description">
+                                        Mastered Docker fundamentals, container orchestration, and best practices for containerizing applications. Created multi-container applications using Docker Compose.
+                                    </p>
+                                    <div class="learning-resources">
+                                        <h5>Resources Used:</h5>
+                                        <ul>
+                                            <li>Docker Official Docs</li>
+                                            <li>Hands-on Labs</li>
+                                            <li>Udemy Course</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Learning Item 4 -->
+                        <div class="learning-item">
+                            <div class="learning-marker in-progress"></div>
+                            
+                            <div class="learning-card">
+                                <div class="learning-header">
+                                    <div>
+                                        <div class="learning-category">
+                                            <span class="category-tag">Backend</span>
+                                            <span class="status-tag">In Progress</span>
+                                        </div>
+                                        <h4 class="learning-topic">GraphQL API Development</h4>
+                                        <p class="learning-date">📅 November 5, 2024</p>
+                                    </div>
+                                    <span class="learning-toggle">▼</span>
+                                </div>
+                                
+                                <div class="learning-details" style="display: none;">
+                                    <p class="learning-description">
+                                        Learning GraphQL schema design, resolvers, and integration with React. Exploring Apollo Client and Server for building efficient APIs.
+                                    </p>
+                                    <div class="learning-resources">
+                                        <h5>Resources Used:</h5>
+                                        <ul>
+                                            <li>GraphQL.org</li>
+                                            <li>Apollo Documentation</li>
+                                            <li>Practice API</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-scroll-hint" id="projectsScrollHint">
+                <span class="projects-scroll-text">Scroll down for more</span>
+                <span class="projects-scroll-icon"><i class="fa-solid fa-hand-point-down"></i></span>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="skills-header">
+              <h2 class="section-title">Technical Skills</h2>
+              <p class="section-subtitle">Technologies, tools, and theories I work with and am familiar with</p>
+            </div>
+          
+            <h3>Technologies & Tools</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">PHP</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">MySQL</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">TailwindCSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">TypeScript</span>
+              <span class="skill-tag">C</span>
+              <span class="skill-tag">C++</span>
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Django</span>
+              <span class="skill-tag">TensorFlow</span>
+              <span class="skill-tag">R</span>
+              <span class="skill-tag">Power BI</span>
+              <span class="skill-tag">Tableau</span>
+              <span class="skill-tag">Docker</span>
+              <span class="skill-tag">Postman</span>
+              <span class="skill-tag">Bash Scripting</span>
+              <span class="skill-tag">Linux</span>
+              <span class="skill-tag">GitHub</span>
+            </div>
+          
+            <h3 style="margin-top: 30px;">Theories</h3>
+            <div class="skills-grid">
+              <span class="skill-tag">Data Structures & Algorithms</span>
+              <span class="skill-tag">OOP</span>
+              <span class="skill-tag">Database Normalization</span>
+              <span class="skill-tag">Computer Networks</span>
+              <span class="skill-tag">Digital Marketing</span>
+              <span class="skill-tag">Agile Development</span>
+              <span class="skill-tag">Project Management</span>
+              <span class="skill-tag">Organizational Behavior</span>
+            </div>
+          </section>
+          
+
+<!-- About Section -->
+<section id="about" class="about-section">
+    <div class="about-content">
+        <h2 class="about-title">About Me</h2>
+        
+        <div class="about-text">
+            <p>
+                I’m an Information Systems undergraduate at the University of Colombo School of Computing (UCSC), passionate about building solutions that connect technology with real-world impact.
+            </p>
+            
+            <p>
+                My work focuses on automation systems, full-stack development, and database design. I enjoy transforming ideas into practical, user-focused software that improves efficiency and experience.
+            </p>
+            
+            <p class="muted">
+                Outside of coding, you’ll probably find me learning new frameworks, contributing to projects, or exploring creative ideas that challenge the ordinary.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="contact-content">
+                <h2 class="contact-title">Let's Connect</h2>
+                
+                <p class="contact-description">
+                    Have a project in mind or want to collaborate? I'd love to hear from you. Drop me a message and let's create something amazing together.
+                </p>
+                
+                <div class="contact-buttons">
+                    <a href="mailto:chamal@example.com" class="btn btn-primary">
+                        <span><i class="fa-solid fa-envelope"></i></span>
+                        Email Me
+                    </a>
+                    
+                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-secondary">
+                        <span><i class="fa-brands fa-linkedin"></i></span>
+                        LinkedIn
+                    </a>
+                    
+                    <a href="https://github.com" target="_blank" class="btn btn-secondary">
+                        <span><i class="fa-brands fa-github"></i></span>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Theme Toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            
+            // Check for saved theme preference or default to dark
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            if (savedTheme === 'light') {
+                body.classList.add('light-mode');
+                themeToggle.innerHTML = `
+                    <i class="fa-solid fa-moon"></i>
+                `;
+            }
+            
+            themeToggle.addEventListener('click', function() {
+                body.classList.toggle('light-mode');
+                
+                if (body.classList.contains('light-mode')) {
+                    localStorage.setItem('theme', 'light');
+                    themeToggle.innerHTML = `
+                        <i class="fa-solid fa-moon"></i>
+                    `;
+                } else {
+                    localStorage.setItem('theme', 'dark');
+                    themeToggle.innerHTML = `
+                        <i class="fa-solid fa-sun"></i>
+                    `;
+                }
+            });
+            
+            // Navigation
+            const navItems = document.querySelectorAll('.nav-item');
+            const container = document.querySelector('.horizontal-scroll-container');
+            
+            // Update active section on scroll
+            function updateActiveSection() {
+                const scrollX = container.scrollLeft + window.innerWidth / 2;
+                const sections = document.querySelectorAll('section');
+                
+                sections.forEach(section => {
+                    const left = section.offsetLeft;
+                    const right = left + section.offsetWidth;
+                    
+                    if (scrollX >= left && scrollX < right) {
+                        const sectionId = section.id;
+                        
+                        // Update nav dots
+                        navItems.forEach(item => {
+                            const dot = item.querySelector('.nav-dot');
+                            const label = item.querySelector('.nav-label');
+                            
+                            if (item.getAttribute('data-section') === sectionId) {
+                                dot.classList.add('active');
+                                label.classList.add('active');
+                            } else {
+                                dot.classList.remove('active');
+                                label.classList.remove('active');
+                            }
+                        });
+                    }
+                });
+                
+                // Hide scroll hint after scrolling
+                if (container.scrollLeft > 50) {
+                    document.getElementById('scrollHint').classList.add('hidden');
+                }
+            }
+            
+            // Smooth scroll to section
+            navItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    const section = document.getElementById(sectionId);
+                    
+                    if (section) {
+                        container.scrollTo({
+                            left: section.offsetLeft,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Initialize scroll listener
+            container.addEventListener('scroll', updateActiveSection);
+            updateActiveSection(); // Initial call
+            
+            // Hide scroll hint after 5 seconds
+            setTimeout(() => {
+                document.getElementById('scrollHint').classList.add('hidden');
+            }, 5000);
+            
+            // Learning cards toggle
+            const learningCards = document.querySelectorAll('.learning-card');
+            
+            learningCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const details = this.querySelector('.learning-details');
+                    const toggle = this.querySelector('.learning-toggle');
+                    
+                    if (details.style.display === 'block') {
+                        details.style.display = 'none';
+                        toggle.classList.remove('rotated');
+                        this.classList.remove('expanded');
+                    } else {
+                        details.style.display = 'block';
+                        toggle.classList.add('rotated');
+                        this.classList.add('expanded');
+                    }
+                });
+            });
+            
+            // Projects scroll hint
+            const projectsContent = document.querySelector('.projects-content');
+            const projectsScrollHint = document.getElementById('projectsScrollHint');
+            
+            projectsContent.addEventListener('scroll', function() {
+                if (this.scrollTop > 50) {
+                    projectsScrollHint.classList.add('hidden');
+                }
+            });
+            
+            // Smooth scroll for hero buttons
+            const heroButtons = document.querySelectorAll('.hero-buttons a, .contact-buttons a');
+            
+            heroButtons.forEach(button => {
+                if (button.getAttribute('href').startsWith('#')) {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href').substring(1);
+                        const targetSection = document.getElementById(targetId);
+                        
+                        if (targetSection) {
+                            container.scrollTo({
+                                left: targetSection.offsetLeft,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
