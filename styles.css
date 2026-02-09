@@ -19,6 +19,7 @@ a {
     color: white;
     text-decoration: inherit;
 }
+
 a:hover {
     /* Dark Mode Link Hover: Using Muted Olive Green for hover state */
     color: #fff;
@@ -26,11 +27,20 @@ a:hover {
 
 body {
     margin: 0;
-    display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
     overflow: hidden;
+    background-color: #000;
+}
+
+.floating-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
 
 h1 {
@@ -49,9 +59,11 @@ button {
     cursor: pointer;
     transition: border-color 0.25s;
 }
+
 button:hover {
     border-color: #85A947;
 }
+
 button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
@@ -66,14 +78,17 @@ button:focus-visible {
         /* Light Mode Background: Very Light Beige/Cream */
         background-color: #EFE3C2;
     }
+
     a {
         /* Light Mode Link Color: Dark Green */
         color: #3E7B27;
     }
+
     a:hover {
         /* Light Mode Link Hover: Muted Olive Green */
         color: #85A947;
     }
+
     button {
         /* Light Mode Button Background: Light Beige/Cream (similar to bg) */
         background-color: #EFE3C2;
@@ -82,6 +97,7 @@ button:focus-visible {
         /* Light Mode Button Border: Dark Green */
         border: 1px solid #3E7B27;
     }
+
     button:hover {
         /* Light Mode Button Hover Border: Very Dark Green */
         border-color: #123524;
@@ -95,22 +111,22 @@ button:focus-visible {
     box-sizing: border-box;
 }
 
-.horizontal-scroll-container {
-    display: flex;
+.vertical-scroll-container {
+    display: block;
     width: 100vw;
     height: 100vh;
-    overflow-x: scroll;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     position: relative;
 }
 
 section {
-    min-width: 100vw;
-    height: 100vh;
+    width: 100vw;
+    min-height: 100vh;
     scroll-snap-align: start;
-    padding: 0.5rem;
+    padding: 2rem 1.5rem;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -172,11 +188,12 @@ section {
     left: 0;
     right: 0;
     z-index: 50;
-    background-color: rgba(62, 123, 39, 0.3);
-    backdrop-filter: blur(12px);
+    background-color: rgba(62, 123, 39, 0.4);
+    backdrop-filter: blur(16px);
     border-top: 1px solid rgba(133, 169, 71, 0.5);
     padding: 0.75rem 1rem;
-    box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 24px));
+    box-shadow: 0 -10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 .mobile-nav .nav-items {
@@ -208,7 +225,7 @@ section {
     width: 0.625rem;
     height: 0.625rem;
     border-radius: 50%;
-    transition: all 0.5s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-dot.active {
@@ -239,6 +256,7 @@ section {
     .desktop-nav {
         display: flex;
     }
+
     .mobile-nav {
         display: none;
     }
@@ -793,6 +811,7 @@ section {
     transition: color 0.3s;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -807,7 +826,8 @@ section {
     line-height: 1.375;
     font-size: 0.75rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1137,7 +1157,8 @@ section {
     margin-bottom: 1rem;
     animation: fadeIn 0.8s ease-out forwards;
 }
-#skills h3{
+
+#skills h3 {
     margin: 10px auto;
 }
 
@@ -1330,6 +1351,7 @@ section {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1337,27 +1359,36 @@ section {
 }
 
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }
 }
 
 @keyframes wave {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateX(0);
     }
+
     50% {
         transform: translateX(5px);
     }
 }
 
 @keyframes bounce {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(-5px);
     }
@@ -1367,12 +1398,15 @@ section {
     0% {
         transform: translate(0px, 0px) scale(1);
     }
+
     33% {
         transform: translate(30px, -50px) scale(1.1);
     }
+
     66% {
         transform: translate(-20px, 20px) scale(0.9);
     }
+
     100% {
         transform: translate(0px, 0px) scale(1);
     }
@@ -1718,23 +1752,27 @@ section {
 
 .floating-bg {
     position: fixed;
-    inset: 0; /* shorthand for top:0;right:0;bottom:0;left:0; */
+    inset: 0;
+    /* shorthand for top:0;right:0;bottom:0;left:0; */
     z-index: 0;
-    pointer-events: none; /* allow clicks through */
+    pointer-events: none;
+    /* allow clicks through */
     overflow: hidden;
     background: linear-gradient(180deg, #031024 0%, #06132a 60%, #081622 100%);
-  }
+}
 
-  /* Make the canvas fill wrapper exactly */
-  .floating-bg canvas {
+/* Make the canvas fill wrapper exactly */
+.floating-bg canvas {
     width: 100%;
     height: 100%;
     display: block;
     /* no pointer events on canvas either */
     pointer-events: none;
-  }
+}
 
-  /* Respect reduced motion: stop animation but keep static dots */
-  @media (prefers-reduced-motion: reduce) {
-    .floating-bg canvas { opacity: 0.95; }
-  }
+/* Respect reduced motion: stop animation but keep static dots */
+@media (prefers-reduced-motion: reduce) {
+    .floating-bg canvas {
+        opacity: 0.95;
+    }
+}
