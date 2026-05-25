@@ -1,0 +1,130 @@
+2023 — First Steps into Web Development
+
+Started learning web development after A/Ls using pure HTML, CSS, JavaScript, and PHP without frameworks. Built and deployed a content website with the goal of monetizing it through Google AdSense.
+
+Worked hands-on with:
+
+cPanel hosting on GoDaddy
+SSL setup and free certificates from Let's Encrypt
+Domain and hosting management
+Search indexing through Google Search Console
+Basic SEO and website optimization
+
+Although the project was eventually discontinued after university workload increased, it became an important learning experience in understanding how real-world websites are deployed, secured, indexed, and maintained.
+
+
+
+2023 — Intensive Self-Learning Phase
+
+During the months after A/Ls, completed multiple professional certificate programs and specializations while exploring different areas of technology and digital systems.
+
+Completed studies in:
+
+University of Michigan’s Python for Everybody Specialization
+Google Cybersecurity
+Google Digital Marketing & E-Commerce
+Google Data Analytics
+
+This period helped build foundations across programming, cybersecurity, analytics, digital platforms, and problem-solving while developing the habit of learning independently at a fast pace.
+
+
+
+2023 — Entering the Machine Learning & AI Space
+
+Completed the Machine Learning Specialization by DeepLearning.AI, taught by Andrew Ng.
+
+This became the foundation for exploring machine learning and AI systems, including:
+
+Supervised and unsupervised learning
+Pattern recognition and predictive modeling
+Model training and evaluation
+Neural network fundamentals
+Practical usage of Scikit-learn, Keras, and TensorFlow
+
+The specialization played a major role in shaping my interest in AI engineering and intelligent systems, while also changing the way I approached problem-solving and system design.
+
+2023 — Exploring Networking & IT Foundations
+
+During my early learning phase, I also explored networking and IT fundamentals through Cisco Networking Academy, earning multiple badges while learning core concepts related to networking, cybersecurity, and digital infrastructure.
+
+Although I was still figuring out my exact direction at the time, this exploration helped broaden my understanding of how systems communicate, operate, and are secured beyond just software development.
+
+Coming from a traditional learning environment, discovering self-paced online learning completely changed the way I approached education.
+
+The ability to explore topics freely, build things hands-on, and learn at my own pace created a level of excitement I had never experienced before. Most of my early learning journey was driven by curiosity rather than a fixed plan — I simply kept diving deeper into the technologies that interested me.
+
+2024 — Started Undergraduate Studies at UCSC
+
+Began my Information Systems degree at the University of Colombo School of Computing (UCSC), marking the transition from self-directed learning to formal computer science and systems education.
+
+This phase helped strengthen foundational knowledge in software engineering, systems thinking, and collaborative development, while continuing to build on my self-taught experience.
+
+2024 — First Year at UCSC
+
+In the first year of my Information Systems degree at UCSC, I focused on strengthening foundational knowledge through academic coursework.
+
+Internet & Web Application Development: Built a full-stack web application as part of coursework, reinforcing understanding of frontend-backend integration and basic system design.
+Management Studies Project: Worked on a case study analyzing a real-world company using strategic frameworks such as SWOT, Porter’s Five Forces, PEST analysis, Ansoff Matrix, and the 7Ps of Marketing to develop structured business insights.
+
+While these projects were academic in nature, they helped reinforce structured thinking, teamwork, and applying technical and business concepts in a formal setting.
+
+2024 — Semester 2: Things got real
+
+This semester was basically a mix of everything: systems, theory, networking, databases… and a bit of chaos.
+
+Courses included Systems Analysis and Design, Project Management, Database Systems, Computer Networks, DSA, Statistics, and Organizational Behavior.
+
+I ended up learning stuff like:
+
+UML diagrams and system modeling
+Project management principles (how real projects are supposed to run lol)
+Databases and relational thinking
+Data structures and algorithms (the classic grind)
+Computer Networks, where we even built a basic web server using C
+
+It was a heavy mix of theory + practical confusion, but that’s where I started seeing how different parts of computing actually connect.
+
+
+2025 — 2nd Year, Semester 1: Building actual systems
+
+This semester had a pretty interesting mix: advanced algorithms, OOP, security, mobile development, business processes, and electronics.
+
+Subjects included:
+
+Advanced Data Structures and Algorithms
+Object Oriented Programming
+Information Systems Security
+Mobile Application Design and Development
+Business Process Management
+Electronics and Physical Computing
+
+For the mobile app development subject, we built a text editor using Kotlin for Android. The interesting part was that it could even compile code by communicating with a computer through an ADB connection, where a Python backend handled the requests and execution flow.
+
+For Electronics and Physical Computing, we built an IoT project using Arduino Uno, ESP32, and multiple sensors. That subject honestly gave me a different perspective on how software can interact with the physical world.
+
+This semester felt more “engineering oriented” compared to the earlier theory-heavy phases. Systems started becoming more interconnected: software, hardware, networking, and automation all started blending together.
+
+
+
+2026 — RAG Systems, Agentic AI & Building PartnerAI
+
+Completed the IBM RAG and Agentic AI Specialization through IBM on Coursera.
+
+This specialization gave me a much deeper understanding of retrieval-augmented generation (RAG), agentic workflows, orchestration patterns, and how modern AI systems are actually engineered beyond just prompting an LLM.
+
+Alongside the specialization, I built a project called PartnerAI.
+
+The idea was simple:
+upload business documents (reports, datasets, PDFs, etc.) and interact with them naturally instead of manually digging through files.
+
+Rather than hallucinating, the system retrieves relevant context directly from uploaded data before generating responses. It could also generate charts dynamically for quick analysis and decision-making.
+
+Some interesting parts under the hood:
+
+Multi-agent architecture using CrewAI with role-based agents like a Business Analyst and Data Scientist
+RAG pipeline powered by ChromaDB for contextual retrieval
+Async backend built with FastAPI
+Python REPL execution tools allowing agents to run Python code dynamically on datasets
+React + Vite frontend
+
+This project was one of the moments where multiple areas I had explored earlier — backend systems, AI, automation, data analysis, and architecture thinking — finally started connecting together into a single system.

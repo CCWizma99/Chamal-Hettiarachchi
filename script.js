@@ -1,181 +1,242 @@
-    const CONFIG = {
-      count: 10,                // number of circles
-      baseSize: 18,             // typical radius in px
-      sizeVariance: 28,         // how much sizes can vary
-      speed: 0.2,               // upward speed multiplier
-      drift: 0.5,               // horizontal drift multiplier
-      colors: [                 // palette (can be CSS colors or rgba)
-        "rgba(255,255,255,0.07)",
-        "rgba(173,216,230,0.06)",
-        "rgba(255,182,193,0.05)",
-        "rgba(144,238,144,0.04)"
-      ],
-      blur: 20,                 // glow blur applied to each circle (higher = softer)
-      mouseParallax: 0.02      // how much circles shift with mouse (0 to disable)
-    };
+/* ============================================================
+   Portfolio Script — Watercolor Pipeline Theme
+   ============================================================ */
 
-    (function start() {
-      const canvas = document.getElementById('floatingCircles');
-      const ctx = canvas.getContext('2d', { alpha: true });
+const PIPE_STEPS = [
+    { id: 'think',  icon: 'fa-lightbulb',  label: 'Think',  color: 'navy',   caption: 'Understand the problem before touching code.' },
+    { id: 'design', icon: 'fa-pen-ruler',  label: 'Design', color: 'blue',   caption: 'Architect a solution that scales and makes sense.' },
+    { id: 'build',  icon: 'fa-code',       label: 'Build',  color: 'lblue',  caption: 'Write clean, purposeful code.' },
+    { id: 'ship',   icon: 'fa-rocket',     label: 'Ship',   color: 'yellow', caption: 'Deploy, deliver, and put work into the world.' },
+    { id: 'learn',  icon: 'fa-book-open',  label: 'Learn',  color: 'blue',   caption: 'Reflect, iterate, and carry lessons forward.' },
+];
 
-      let width = 0, height = 0, dpr = Math.max(1, window.devicePixelRatio || 1);
-      let circles = [];
-      let pointer = { x: 0, y: 0 };
+document.addEventListener('DOMContentLoaded', () => {
 
-      // Respect reduced motion: if user prefers reduced motion, we'll pause animation but still draw static circles
-      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    /* ---------- THEME ---------- */
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
 
-      function resize() {
-        width = canvas.clientWidth;
-        height = canvas.clientHeight;
-        canvas.width = Math.round(width * dpr);
-        canvas.height = Math.round(height * dpr);
-        ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // match CSS pixels
+    const saved = localStorage.getItem('wc-theme') || 'light';
+    if (saved === 'dark') applyDark();
 
-        // regenerate circles proportionally if screen drastically changes
-        initCircles();
-      }
-
-      function rand(min, max) { return Math.random() * (max - min) + min; }
-
-      function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
-
-      function initCircles() {
-        circles = [];
-        const areaFactor = (width * height) / (1366 * 768); // scale by screen real estate
-        const targetCount = Math.max(8, Math.round(CONFIG.count * Math.sqrt(areaFactor)));
-
-        for (let i = 0; i < targetCount; i++) {
-          const radius = Math.max(2, CONFIG.baseSize + rand(-CONFIG.sizeVariance, CONFIG.sizeVariance));
-          const x = rand(-radius, width + radius);
-          const y = rand(-height * 0.5, height + height * 0.5); // start some above/below so distribution looks natural
-          const vy = rand(0.08, 0.8) * CONFIG.speed * (0.6 + Math.random()); // upward speed
-          const vx = rand(-0.4, 0.4) * CONFIG.drift; // horizontal drift
-          const color = pick(CONFIG.colors);
-          const alpha = rand(0.02, 0.18);
-          const twinkle = Math.random() < 0.06 ? rand(0.2, 0.7) : 0; // some circles gently pulse
-          circles.push({ x, y, vx, vy, radius, color, alpha, twinkle, twPhase: Math.random() * Math.PI * 2 });
+    themeToggle.addEventListener('click', () => {
+        if (document.body.classList.contains('dark')) {
+            document.body.classList.remove('dark');
+            themeIcon.className = 'fa-solid fa-moon';
+            localStorage.setItem('wc-theme', 'light');
+        } else {
+            applyDark();
         }
-      }
+    });
 
-      function drawStatic() {
-        // draw static layout (used for reduced-motion preference)
-        ctx.clearRect(0, 0, width, height);
-        ctx.save();
-        ctx.globalCompositeOperation = 'lighter';
-        for (const c of circles) {
-          ctx.beginPath();
-          ctx.fillStyle = c.color.replace(/rgba\(([\d\s,]+)\)/, `rgba($1,${c.alpha})`);
-          ctx.filter = `blur(${CONFIG.blur}px)`;
-          ctx.arc(c.x, c.y, c.radius, 0, Math.PI * 2);
-          ctx.fill();
-        }
-        ctx.restore();
-      }
+    function applyDark() {
+        document.body.classList.add('dark');
+        themeIcon.className = 'fa-solid fa-sun';
+        localStorage.setItem('wc-theme', 'dark');
+    }
 
-      function render(now) {
-        ctx.clearRect(0, 0, width, height);
+    /* ---------- NAV — IntersectionObserver ---------- */
+    const sections  = document.querySelectorAll('section[id]');
+    const navItems  = document.querySelectorAll('.nav-item[data-section]');
 
-        // subtle parallax based on mouse
-        const px = (pointer.x / width - 0.5) * width * CONFIG.mouseParallax;
-        const py = (pointer.y / height - 0.5) * height * CONFIG.mouseParallax;
-
-        ctx.save();
-        ctx.globalCompositeOperation = 'lighter';
-
-        for (const c of circles) {
-          // animation pulse
-          if (c.twinkle) {
-            c.twPhase += 0.016 * (0.6 + Math.random() * 0.8);
-            c.currentAlpha = c.alpha * (0.7 + 0.6 * Math.sin(c.twPhase));
-          } else {
-            c.currentAlpha = c.alpha;
-          }
-
-          // draw with blur glow
-          ctx.beginPath();
-          ctx.fillStyle = c.color.replace(/rgba\(([\d\s,]+)\)/, `rgba($1,${c.currentAlpha})`);
-          ctx.filter = `blur(${CONFIG.blur}px)`;
-          const drawX = c.x + px * (c.radius / (CONFIG.baseSize + 1));
-          const drawY = c.y + py * (c.radius / (CONFIG.baseSize + 1));
-          ctx.arc(drawX, drawY, c.radius, 0, Math.PI * 2);
-          ctx.fill();
-
-          // thin crisp core (no blur) for subtle definition
-          ctx.beginPath();
-          ctx.filter = 'none';
-          ctx.globalAlpha = Math.min(1, c.currentAlpha * 6);
-          ctx.arc(drawX, drawY, Math.max(0.6, c.radius * 0.25), 0, Math.PI * 2);
-          ctx.fill();
-          ctx.globalAlpha = 1;
-        }
-
-        ctx.restore();
-
-        // update physics (unless reduced motion)
-        if (!reducedMotion) {
-          for (const c of circles) {
-            c.x += c.vx;
-            c.y -= c.vy; // moving up
-            // gentle horizontal oscillation for organic movement
-            c.vx += Math.sin((c.x + now * 0.0002) * 0.002) * 0.0005;
-
-            // recycle off-screen circles to bottom
-            if (c.y + c.radius < -50 || c.x < -200 || c.x > width + 200) {
-              // place back near bottom
-              c.x = rand(-50, width + 50);
-              c.y = height + rand(10, height * 0.5);
-              c.vy = rand(0.08, 0.8) * CONFIG.speed;
-              c.vx = rand(-0.4, 0.4) * CONFIG.drift;
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                navItems.forEach(item => {
+                    const active = item.dataset.section === id;
+                    item.classList.toggle('active', active);
+                    item.querySelector('.nav-dot')?.classList.toggle('active', active);
+                    item.querySelector('.nav-label')?.classList.toggle('active', active);
+                });
             }
-          }
-          requestAnimationFrame(render);
+        });
+    }, { threshold: 0.45 });
+
+    sections.forEach(s => sectionObserver.observe(s));
+
+    /* Nav click → smooth scroll */
+    navItems.forEach(item => {
+        item.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.getElementById(item.dataset.section);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+    /* ---------- PIPELINE ---------- */
+    buildPipeline();
+    initPipelineObserver();
+
+    /* ---------- TIMELINE CARDS ---------- */
+    document.querySelectorAll('.tl-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const body = card.querySelector('.tl-body');
+            if (!body) return;
+            const open = body.style.display === 'block';
+            body.style.display = open ? 'none' : 'block';
+            card.classList.toggle('expanded', !open);
+        });
+    });
+    
+    /* ---------- FLUID TUBE SCROLL TIMELINE ---------- */
+    const pageScroll = document.querySelector('.page-scroll');
+    const timeline   = document.querySelector('.timeline');
+    const tlFluid    = document.querySelector('.tl-fluid');
+    const tlBubble   = document.querySelector('.tl-indicator-bubble');
+
+    if (pageScroll && timeline && tlFluid && tlBubble) {
+        const updateTimelineFluid = () => {
+            const rect = timeline.getBoundingClientRect();
+            const viewHeight = window.innerHeight;
+            
+            const start = viewHeight * 0.70;
+            const totalDistance = rect.height;
+            const currentProgress = start - rect.top;
+
+            let percentage = (currentProgress / totalDistance) * 100;
+            percentage = Math.max(0, Math.min(100, percentage));
+
+            tlFluid.style.height = `${percentage}%`;
+
+            if (percentage > 0 && percentage < 100) {
+                tlBubble.style.opacity = '1';
+                const topPos = (percentage / 100) * totalDistance;
+                tlBubble.style.top = `${topPos}px`;
+                tlBubble.textContent = `${Math.round(percentage)}%`;
+            } else if (percentage >= 100) {
+                tlBubble.style.opacity = '1';
+                tlBubble.style.top = `${totalDistance}px`;
+                tlBubble.textContent = '100%';
+            } else {
+                tlBubble.style.opacity = '0';
+            }
+        };
+
+        pageScroll.addEventListener('scroll', updateTimelineFluid);
+        updateTimelineFluid();
+    }
+
+    /* ---------- FADE IN ---------- */
+    const fadeEls = document.querySelectorAll('.section-header, .hero-inner, .pipeline-strip, .proj-group, .skill-group, .about-inner, .contact-inner');
+    fadeEls.forEach(el => el.classList.add('fade-in'));
+
+    const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                fadeObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    fadeEls.forEach(el => fadeObserver.observe(el));
+
+});
+
+/* ============================================================
+   PIPELINE BUILD + ANIMATION
+   ============================================================ */
+
+let pipeNodeEls     = [];
+let pipeConnectors  = [];
+let pipeRunning     = false;
+let pipeLoopTimer   = null;
+
+function buildPipeline() {
+    const row     = document.getElementById('pipelineRow');
+    if (!row) return;
+    row.innerHTML = '';
+    pipeNodeEls   = [];
+    pipeConnectors = [];
+
+    PIPE_STEPS.forEach((step, i) => {
+        /* Node */
+        const node = document.createElement('div');
+        node.className = 'pipe-node';
+        node.dataset.color = step.color;
+        node.id = 'pn-' + step.id;
+        node.innerHTML = `
+            <div class="pipe-box" id="pb-${step.id}">
+                <i class="fa-solid ${step.icon}"></i>
+                <span>${step.label}</span>
+            </div>`;
+        row.appendChild(node);
+        pipeNodeEls.push(node);
+
+        /* Connector (except after last) */
+        if (i < PIPE_STEPS.length - 1) {
+            const conn = document.createElement('div');
+            conn.className = 'pipe-connector';
+            conn.innerHTML = `<div class="pipe-track"></div><div class="pipe-fill" id="pf-${i}"></div><div class="pipe-pkt" id="pp-${i}"></div>`;
+            row.appendChild(conn);
+            pipeConnectors.push({
+                fill: conn.querySelector(`#pf-${i}`),
+                pkt:  conn.querySelector(`#pp-${i}`),
+            });
         }
-      }
+    });
+}
 
-      // mouse tracking — only for parallax, not required
-      function onPointerMove(e) {
-        const ev = (e.touches && e.touches[0]) || e;
-        pointer.x = ev.clientX;
-        pointer.y = ev.clientY;
-      }
+function resetPipeline() {
+    pipeNodeEls.forEach(n => n.classList.remove('active', 'done'));
+    pipeConnectors.forEach(c => {
+        c.fill.style.width = '0%';
+        c.pkt.classList.remove('go');
+    });
+    document.getElementById('pipelineCaption').textContent = '— watch the flow —';
+}
 
-      // init
-      function init() {
-        resize();
-        if (reducedMotion) {
-          drawStatic();
-          return;
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+async function runPipeline() {
+    if (pipeRunning) return;
+    pipeRunning = true;
+    resetPipeline();
+
+    for (let i = 0; i < PIPE_STEPS.length; i++) {
+        const step = PIPE_STEPS[i];
+        pipeNodeEls[i].classList.add('active');
+        document.getElementById('pipelineCaption').textContent = step.caption;
+        await sleep(900);
+
+        if (i < PIPE_STEPS.length - 1) {
+            pipeNodeEls[i].classList.remove('active');
+            pipeNodeEls[i].classList.add('done');
+
+            const { fill, pkt } = pipeConnectors[i];
+            pkt.classList.remove('go');
+            void pkt.offsetWidth;
+            pkt.classList.add('go');
+            setTimeout(() => { fill.style.width = '100%'; }, 150);
+            await sleep(600);
+        } else {
+            pipeNodeEls[i].classList.remove('active');
+            pipeNodeEls[i].classList.add('done');
+            document.getElementById('pipelineCaption').textContent = '✦  That\'s how it ships.';
         }
-        requestAnimationFrame(render);
-      }
+    }
 
-      // good practice: debounce resize
-      let resizeTimer = null;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(resize, 120);
-      }, { passive: true });
+    pipeRunning = false;
 
-      // pointer events
-      window.addEventListener('mousemove', onPointerMove, { passive: true });
-      window.addEventListener('touchmove', onPointerMove, { passive: true });
+    /* Auto-restart loop after a pause */
+    pipeLoopTimer = setTimeout(() => {
+        resetPipeline();
+        setTimeout(runPipeline, 600);
+    }, 3000);
+}
 
-      // Handle page visibility: pause animation when tab hidden to save CPU
-      let wasRunning = false;
-      document.addEventListener('visibilitychange', () => {
-        if (document.hidden) {
-          wasRunning = true;
-        } else if (wasRunning && !reducedMotion) {
-          requestAnimationFrame(render);
-          wasRunning = false;
-        }
-      });
+function initPipelineObserver() {
+    const strip = document.getElementById('pipelineStrip');
+    if (!strip) return;
 
-      // make sure the canvas fills fully when CSS changes
-      // use MutationObserver only if you embed canvas in dynamic layout — omitted for simplicity
-
-      // create initial circles and start
-      initCircles();
-      init();
-    })();
+    let triggered = false;
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !triggered) {
+                triggered = true;
+                setTimeout(runPipeline, 400);
+            }
+        });
+    }, { threshold: 0.5 });
+    obs.observe(strip);
+}

@@ -4,157 +4,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chamal Hettiarachchi — Information Systems undergraduate building systems, ideas, and solutions that move things forward.">
+    <title>Chamal Hettiarachchi — Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
-    <title>Chamal Hettiarachchi - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <div class="floating-bg" aria-hidden="true">
-        <canvas id="floatingCircles"></canvas>
-    </div>
-    <!-- <script src="./script.js"></script> -->
 
-    <div class="content vertical-scroll-container scrollbar-thin">
-        <!-- Theme Toggle Button -->
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-            <i class="fa-solid fa-sun"></i>
+    <!-- Watercolor ambient blobs — one per section, CSS only -->
+    <div class="wc-blobs" aria-hidden="true">
+        <div class="wc-blob wc-blob--hero"></div>
+        <div class="wc-blob wc-blob--projects"></div>
+        <div class="wc-blob wc-blob--about"></div>
+        <div class="wc-blob wc-blob--contact"></div>
+    </div>
+
+    <div class="page-scroll scrollbar-thin">
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i class="fa-solid fa-moon" id="themeIcon"></i>
         </button>
 
-        <!-- Enhanced Navbar - Desktop -->
-        <nav class="desktop-nav">
-            <a href="#home" class="nav-item" data-section="home">
+        <!-- Desktop Side Nav -->
+        <nav class="desktop-nav" aria-label="Section navigation">
+            <a href="#home"     class="nav-item active" data-section="home">
                 <div class="nav-dot active"></div>
-                <span class="nav-label active">Home</span>
+                <span class="nav-label">Home</span>
+            </a>
+            <a href="#about"    class="nav-item" data-section="about">
+                <div class="nav-dot"></div>
+                <span class="nav-label">About</span>
             </a>
             <a href="#projects" class="nav-item" data-section="projects">
                 <div class="nav-dot"></div>
                 <span class="nav-label">Projects</span>
             </a>
-            <a href="#skills" class="nav-item" data-section="skills">
+            <a href="#skills"   class="nav-item" data-section="skills">
                 <div class="nav-dot"></div>
                 <span class="nav-label">Skills</span>
             </a>
-            <a href="#about" class="nav-item" data-section="about">
-                <div class="nav-dot"></div>
-                <span class="nav-label">About</span>
-            </a>
-            <a href="#contact" class="nav-item" data-section="contact">
+            <a href="#contact"  class="nav-item" data-section="contact">
                 <div class="nav-dot"></div>
                 <span class="nav-label">Contact</span>
             </a>
         </nav>
 
-        <!-- Mobile Bottom Navigation -->
-        <nav class="mobile-nav">
-            <div class="nav-items">
-                <a href="#home" class="nav-item" data-section="home">
+        <!-- Mobile Bottom Nav -->
+        <nav class="mobile-nav" aria-label="Section navigation">
+            <div class="mobile-nav-inner">
+                <a href="#home"     class="nav-item active" data-section="home">
                     <div class="nav-dot active"></div>
-                    <span class="nav-label active">Home</span>
+                    <span class="nav-label">Home</span>
+                </a>
+                <a href="#about"    class="nav-item" data-section="about">
+                    <div class="nav-dot"></div>
+                    <span class="nav-label">About</span>
                 </a>
                 <a href="#projects" class="nav-item" data-section="projects">
                     <div class="nav-dot"></div>
                     <span class="nav-label">Projects</span>
                 </a>
-                <a href="#skills" class="nav-item" data-section="skills">
+                <a href="#skills"   class="nav-item" data-section="skills">
                     <div class="nav-dot"></div>
                     <span class="nav-label">Skills</span>
                 </a>
-                <a href="#about" class="nav-item" data-section="about">
-                    <div class="nav-dot"></div>
-                    <span class="nav-label">About</span>
-                </a>
-                <a href="#contact" class="nav-item" data-section="contact">
+                <a href="#contact"  class="nav-item" data-section="contact">
                     <div class="nav-dot"></div>
                     <span class="nav-label">Contact</span>
                 </a>
             </div>
         </nav>
 
-
-        <!-- Hero Section -->
+        <!-- ═══════════════════ HERO ═══════════════════ -->
         <section id="home" class="hero">
-            <div class="hero-bg-elements">
-                <div class="hero-bg-element"></div>
-                <div class="hero-bg-element"></div>
-            </div>
+            <div class="hero-inner">
 
-            <div class="hero-content">
-                <!-- Profile Image -->
-                <div class="profile-image">
-                    <div class="profile-image-wrapper">
-                        <div class="profile-image-glow"></div>
-                        <div class="profile-image-inner">
-                            <img src="./prof.png" alt="Chamal Hettiarachchi">
-                        </div>
+                <div class="profile-wrap">
+                    <div class="profile-ring">
+                        <img src="./prof.png" alt="Chamal Hettiarachchi" class="profile-img">
                     </div>
                 </div>
 
-                <!-- Content -->
                 <div class="hero-text">
-                    <div class="availability-badge">Available for opportunities</div>
-
-                    <h1 class="hero-title">Hi, I'm <span>Chamal Hettiarachchi</span></h1>
-
-                    <p class="hero-description">
-                        I build systems, ideas, and people. I believe in automation, efficiency, and building what moves
-                        the world forward. </p>
-
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            View My Work
-                            <span>→</span>
-                        </a>
-                        <a href="#contact" class="btn btn-secondary">
-                            Contact Me
-                        </a>
+                    <span class="avail-badge">Available for opportunities</span>
+                    <h1 class="hero-name">Hi, I'm<br><em>Chamal Hettiarachchi</em></h1>
+                    <p class="hero-tagline">I build systems, ideas, and people. Automation, efficiency, and work that moves things forward.</p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View my work <span>→</span></a>
+                        <a href="#contact"  class="btn btn-ghost">Get in touch</a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Pipeline strip — signature element -->
+            <div class="pipeline-strip" id="pipelineStrip">
+                <p class="pipeline-eyebrow">How I work</p>
+                <div class="pipeline-row" id="pipelineRow">
+                    <!-- Nodes injected by JS -->
+                </div>
+                <p class="pipeline-caption" id="pipelineCaption">— watch the flow —</p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════ ABOUT ═══════════════════ -->
+        <section id="about" class="about-section">
+            <div class="about-inner">
+                <h2 class="section-title">About <span class="amp">Me</span></h2>
+                <div class="about-text">
+                    <p>I'm an Information Systems undergraduate at the <strong>University of Colombo School of Computing (UCSC)</strong>, focused on building solutions that connect technology with real-world impact.</p>
+                    <p>My work spans automation systems, full-stack development, and database design. I enjoy transforming ideas into practical, user-focused software that improves efficiency and experience.</p>
+                    <p class="about-muted">Outside of code, I'm learning new frameworks, contributing to projects, and exploring ideas that challenge the ordinary.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects & Learnings Section -->
+        <!-- ═══════════════════ PROJECTS ═══════════════════ -->
         <section id="projects" class="projects-section">
-            <div class="projects-header">
-                <h2 class="section-title">Projects & Learnings</h2>
-                <p class="section-subtitle">Featured work and my learning journey</p>
+            <div class="section-header">
+                <h2 class="section-title">Projects <span class="amp">&amp;</span> Learning</h2>
+                <p class="section-sub">Featured work and the journey behind it</p>
             </div>
 
-            <div class="projects-content scrollbar-thin">
-                <!-- Highlight Projects -->
-                <div class="featured-projects">
-                    <h3 class="projects-subtitle">
-                        <span><i class="fa-solid fa-star"></i></span>
-                        Featured Projects
-                    </h3>
-                    <div class="projects-grid">
-                        <!-- Project 1 -->
-                        <a href="#" class="project-card">
-                            <div class="project-image">
-                                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80"
-                                    alt="University Sports Management System">
-                                <div class="project-image-overlay"></div>
-                                <div class="project-featured-badge">★ Featured</div>
-                            </div>
+            <div class="projects-scroll scrollbar-thin">
 
-                            <div class="project-content">
-                                <div class="project-header">
-                                    <div class="project-icon">
-                                        <span><i class="fa-solid fa-volleyball"></i></span>
-                                    </div>
-                                    <span class="project-link">↗</span>
+                <!-- Featured Projects -->
+                <div class="proj-group">
+                    <h3 class="group-label"><i class="fa-solid fa-star"></i> Featured</h3>
+                    <div class="proj-grid">
+
+                        <a href="#" class="proj-card">
+                            <div class="proj-thumb proj-thumb--icon">
+                                <div class="proj-icon-bg proj-icon-bg--ai">
+                                    <i class="fa-solid fa-robot"></i>
                                 </div>
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-top">
+                                    <span class="domain-badge badge--ai">AI / RAG</span>
+                                    <span class="proj-arrow">↗</span>
+                                </div>
+                                <h4 class="proj-name">PartnerAI</h4>
+                                <p class="proj-desc">Upload business documents and interact with them naturally. A multi-agent RAG system that retrieves real context from your data and generates dynamic charts — no hallucinations.</p>
+                                <div class="tech-row">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">FastAPI</span>
+                                    <span class="tech-tag">CrewAI</span>
+                                    <span class="tech-tag">ChromaDB</span>
+                                    <span class="tech-tag">React</span>
+                                    <span class="tech-tag">Vite</span>
+                                </div>
+                            </div>
+                        </a>
 
-                                <h4 class="project-name">University Sports Management System</h4>
-
-                                <p class="project-description">
-                                    A comprehensive system to manage university sports events, reservations, and
-                                    participant tracking.
-                                </p>
-
-                                <div class="project-tech">
+                        <a href="#" class="proj-card">
+                            <div class="proj-thumb proj-thumb--icon">
+                                <div class="proj-icon-bg proj-icon-bg--web">
+                                    <i class="fa-solid fa-trophy"></i>
+                                </div>
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-top">
+                                    <span class="domain-badge badge--web">Web</span>
+                                    <span class="proj-arrow">↗</span>
+                                </div>
+                                <h4 class="proj-name">University Sports Management</h4>
+                                <p class="proj-desc">Full-stack web application built during first-year coursework for managing university sports events, reservations, and participant tracking with email notifications.</p>
+                                <div class="tech-row">
                                     <span class="tech-tag">PHP</span>
                                     <span class="tech-tag">MySQL</span>
                                     <span class="tech-tag">Brevo</span>
@@ -162,439 +182,323 @@
                             </div>
                         </a>
 
-                        <!-- Project 4 -->
-                        <a href="#" class="project-card">
-                            <div class="project-image">
-                                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=800&q=80"
-                                    alt="AI Chatbot Assistant">
-                                <div class="project-image-overlay"></div>
-                                <div class="project-featured-badge">★ Featured</div>
-                            </div>
-
-                            <div class="project-content">
-                                <div class="project-header">
-                                    <div class="project-icon">
-                                        <span><i class="fa-solid fa-robot"></i></span>
-                                    </div>
-                                    <span class="project-link">↗</span>
+                        <a href="#" class="proj-card">
+                            <div class="proj-thumb proj-thumb--icon">
+                                <div class="proj-icon-bg proj-icon-bg--iot">
+                                    <i class="fa-solid fa-microchip"></i>
                                 </div>
-
-                                <h4 class="project-name">AI Chatbot Assistant</h4>
-
-                                <p class="project-description">
-                                    Intelligent chatbot using natural language processing for customer support
-                                    automation.
-                                </p>
-
-                                <div class="project-tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">TensorFlow</span>
-                                    <span class="tech-tag">+1</span>
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-top">
+                                    <span class="domain-badge badge--iot">IoT</span>
+                                    <span class="proj-arrow">↗</span>
+                                </div>
+                                <h4 class="proj-name">IoT Sensor System</h4>
+                                <p class="proj-desc">Physical computing project built with Arduino Uno and ESP32, integrating multiple sensors. Bridged the gap between software and the real world during 2nd year.</p>
+                                <div class="tech-row">
+                                    <span class="tech-tag">Arduino</span>
+                                    <span class="tech-tag">ESP32</span>
+                                    <span class="tech-tag">C++</span>
                                 </div>
                             </div>
                         </a>
+
+                        <a href="#" class="proj-card">
+                            <div class="proj-thumb proj-thumb--icon">
+                                <div class="proj-icon-bg proj-icon-bg--mobile">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                </div>
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-top">
+                                    <span class="domain-badge badge--mobile">Mobile</span>
+                                    <span class="proj-arrow">↗</span>
+                                </div>
+                                <h4 class="proj-name">Android Code Editor</h4>
+                                <p class="proj-desc">A text editor for Android that could compile and run code by communicating with a computer over ADB. A Python backend handled execution requests.</p>
+                                <div class="tech-row">
+                                    <span class="tech-tag">Kotlin</span>
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">ADB</span>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#" class="proj-card">
+                            <div class="proj-thumb proj-thumb--icon">
+                                <div class="proj-icon-bg proj-icon-bg--web">
+                                    <i class="fa-solid fa-globe"></i>
+                                </div>
+                            </div>
+                            <div class="proj-body">
+                                <div class="proj-top">
+                                    <span class="domain-badge badge--web">Web</span>
+                                    <span class="proj-arrow">↗</span>
+                                </div>
+                                <h4 class="proj-name">Content Website</h4>
+                                <p class="proj-desc">First real-world web project built post-A/Ls using raw HTML, CSS, JS &amp; PHP — deployed on GoDaddy with SSL, Google Search Console indexing, and AdSense monetisation.</p>
+                                <div class="tech-row">
+                                    <span class="tech-tag">HTML</span>
+                                    <span class="tech-tag">CSS</span>
+                                    <span class="tech-tag">PHP</span>
+                                    <span class="tech-tag">cPanel</span>
+                                    <span class="tech-tag">SEO</span>
+                                </div>
+                            </div>
+                        </a>
+
                     </div>
                 </div>
 
                 <!-- Learning Journey -->
-                <div class="learnings-section">
-                    <h3 class="learnings-subtitle">
-                        <span><i class="fa-solid fa-rocket"></i></span>
-                        Learning Journey
-                    </h3>
-                    <div class="learnings-timeline">
-                        <div class="timeline-line"></div>
+                <div class="proj-group">
+                    <h3 class="group-label"><i class="fa-solid fa-rocket"></i> Learning Journey</h3>
+                    <div class="timeline">
+                        <div class="timeline-tube-container">
+                            <div class="tl-tube">
+                                <div class="tl-fluid"></div>
+                            </div>
+                            <div class="tl-indicator-bubble">0%</div>
+                        </div>
 
-                        <!-- Learning Item 1 -->
-                        <div class="learning-item">
-                            <div class="learning-marker completed"></div>
-
-                            <div class="learning-card">
-                                <div class="learning-header">
+                        <!-- 2023: First Steps -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
                                     <div>
-                                        <div class="learning-category">
-                                            <span class="category-tag">Frontend</span>
-                                        </div>
-                                        <h4 class="learning-topic">React Hooks Deep Dive</h4>
-                                        <p class="learning-date">📅 October 15, 2024</p>
+                                        <span class="tl-tag">Web Dev</span>
+                                        <h4 class="tl-title">First Steps — Building &amp; Deploying a Real Website</h4>
+                                        <p class="tl-date">2023</p>
                                     </div>
-                                    <span class="learning-toggle">▼</span>
+                                    <span class="tl-chevron">▾</span>
                                 </div>
-
-                                <div class="learning-details" style="display: none;">
-                                    <p class="learning-description">
-                                        Explored advanced React Hooks patterns including useCallback, useMemo, and
-                                        custom hooks. Learned about performance optimization techniques and when to use
-                                        each hook effectively.
-                                    </p>
-                                    <div class="learning-resources">
-                                        <h5>Resources Used:</h5>
-                                        <ul>
-                                            <li>React Documentation</li>
-                                            <li>YouTube Tutorials</li>
-                                            <li>Practice Projects</li>
-                                        </ul>
-                                    </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>After A/Ls, dove into web development using pure HTML, CSS, JavaScript, and PHP — no frameworks. Built and deployed a content website aiming for Google AdSense monetisation. Learned how real-world websites are deployed, secured, and maintained.</p>
+                                    <ul><li>cPanel / GoDaddy</li><li>Let's Encrypt SSL</li><li>Google Search Console</li><li>SEO Basics</li></ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Learning Item 2 -->
-                        <div class="learning-item">
-                            <div class="learning-marker completed"></div>
-
-                            <div class="learning-card">
-                                <div class="learning-header">
+                        <!-- 2023: Intensive Self-Learning -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
                                     <div>
-                                        <div class="learning-category">
-                                            <span class="category-tag">Backend</span>
-                                        </div>
-                                        <h4 class="learning-topic">Database Design Principles</h4>
-                                        <p class="learning-date">📅 September 20, 2024</p>
+                                        <span class="tl-tag">Certifications</span>
+                                        <h4 class="tl-title">Intensive Self-Learning Phase</h4>
+                                        <p class="tl-date">2023</p>
                                     </div>
-                                    <span class="learning-toggle">▼</span>
+                                    <span class="tl-chevron">▾</span>
                                 </div>
-
-                                <div class="learning-details" style="display: none;">
-                                    <p class="learning-description">
-                                        Studied normalization, indexing strategies, and query optimization. Implemented
-                                        various database schemas and learned about ACID properties and transactions.
-                                    </p>
-                                    <div class="learning-resources">
-                                        <h5>Resources Used:</h5>
-                                        <ul>
-                                            <li>Database Systems Book</li>
-                                            <li>PostgreSQL Documentation</li>
-                                            <li>Online Courses</li>
-                                        </ul>
-                                    </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Completed multiple professional certificate programs while exploring different areas of technology and digital systems at a rapid pace driven by pure curiosity.</p>
+                                    <ul><li>Python for Everybody — U of Michigan</li><li>Google Cybersecurity</li><li>Google Digital Marketing &amp; E-Commerce</li><li>Google Data Analytics</li></ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Learning Item 3 -->
-                        <div class="learning-item">
-                            <div class="learning-marker completed"></div>
-
-                            <div class="learning-card">
-                                <div class="learning-header">
+                        <!-- 2023: ML & AI -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
                                     <div>
-                                        <div class="learning-category">
-                                            <span class="category-tag">DevOps</span>
-                                        </div>
-                                        <h4 class="learning-topic">Docker & Containerization</h4>
-                                        <p class="learning-date">📅 August 10, 2024</p>
+                                        <span class="tl-tag">AI / ML</span>
+                                        <h4 class="tl-title">Entering the Machine Learning &amp; AI Space</h4>
+                                        <p class="tl-date">2023</p>
                                     </div>
-                                    <span class="learning-toggle">▼</span>
+                                    <span class="tl-chevron">▾</span>
                                 </div>
-
-                                <div class="learning-details" style="display: none;">
-                                    <p class="learning-description">
-                                        Mastered Docker fundamentals, container orchestration, and best practices for
-                                        containerizing applications. Created multi-container applications using Docker
-                                        Compose.
-                                    </p>
-                                    <div class="learning-resources">
-                                        <h5>Resources Used:</h5>
-                                        <ul>
-                                            <li>Docker Official Docs</li>
-                                            <li>Hands-on Labs</li>
-                                            <li>Udemy Course</li>
-                                        </ul>
-                                    </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Completed the Machine Learning Specialization by DeepLearning.AI (Andrew Ng). This became the foundation for exploring AI systems and fundamentally changed the way I approach problem-solving and system design.</p>
+                                    <ul><li>Supervised &amp; Unsupervised Learning</li><li>Neural Network Fundamentals</li><li>Scikit-learn / Keras / TensorFlow</li><li>Predictive Modeling</li></ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Learning Item 4 -->
-                        <div class="learning-item">
-                            <div class="learning-marker in-progress"></div>
-
-                            <div class="learning-card">
-                                <div class="learning-header">
+                        <!-- 2023: Networking -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
                                     <div>
-                                        <div class="learning-category">
-                                            <span class="category-tag">Backend</span>
-                                            <span class="status-tag">In Progress</span>
-                                        </div>
-                                        <h4 class="learning-topic">GraphQL API Development</h4>
-                                        <p class="learning-date">📅 November 5, 2024</p>
+                                        <span class="tl-tag">Networking</span>
+                                        <h4 class="tl-title">Exploring Networking &amp; IT Foundations</h4>
+                                        <p class="tl-date">2023</p>
                                     </div>
-                                    <span class="learning-toggle">▼</span>
+                                    <span class="tl-chevron">▾</span>
                                 </div>
-
-                                <div class="learning-details" style="display: none;">
-                                    <p class="learning-description">
-                                        Learning GraphQL schema design, resolvers, and integration with React. Exploring
-                                        Apollo Client and Server for building efficient APIs.
-                                    </p>
-                                    <div class="learning-resources">
-                                        <h5>Resources Used:</h5>
-                                        <ul>
-                                            <li>GraphQL.org</li>
-                                            <li>Apollo Documentation</li>
-                                            <li>Practice API</li>
-                                        </ul>
-                                    </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Explored networking and IT fundamentals through Cisco Networking Academy, earning multiple badges. Broadened understanding of how systems communicate, operate, and are secured beyond just software development.</p>
+                                    <ul><li>Cisco Networking Academy</li><li>Cybersecurity Fundamentals</li><li>Digital Infrastructure</li></ul>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- 2024: UCSC -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">University</span>
+                                        <h4 class="tl-title">Started Undergraduate Studies at UCSC</h4>
+                                        <p class="tl-date">2024 — Semester 1</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Began my Information Systems degree at the University of Colombo School of Computing (UCSC), transitioning from self-directed learning into formal CS and systems education. Strengthened foundations in software engineering and collaborative development.</p>
+                                    <ul><li>Internet &amp; Web Application Development</li><li>Full-Stack Coursework Project</li><li>Management Studies (SWOT, Porter's Five Forces, PEST)</li></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2024: Sem 2 -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">University</span>
+                                        <h4 class="tl-title">Semester 2 — Things Got Real</h4>
+                                        <p class="tl-date">2024 — Semester 2</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>A heavy mix of systems, theory, networking, databases, and chaos. Started seeing how different parts of computing actually connect — including building a basic web server in C for Computer Networks.</p>
+                                    <ul><li>Systems Analysis &amp; Design (UML)</li><li>Database Systems</li><li>DSA — the classic grind</li><li>Computer Networks (built a web server in C)</li><li>Project Management</li></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2025: Year 2, Sem 1 -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">University</span>
+                                        <span class="tl-tag">IoT</span>
+                                        <span class="tl-tag">Mobile</span>
+                                        <h4 class="tl-title">2nd Year Sem 1 — Building Actual Systems</h4>
+                                        <p class="tl-date">2025 — Semester 1</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>More engineering-oriented. Built an Android text editor in Kotlin that could compile code over ADB, and an IoT project using Arduino Uno and ESP32. Software, hardware, networking, and automation started blending together.</p>
+                                    <ul><li>Advanced DSA</li><li>OOP</li><li>Mobile App Dev — Kotlin (Android Code Editor)</li><li>IoT — Arduino Uno &amp; ESP32</li><li>Information Systems Security</li><li>Business Process Management</li></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2026: RAG & PartnerAI -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">AI / RAG</span>
+                                        <span class="tl-tag tl-tag--active">Latest</span>
+                                        <h4 class="tl-title">RAG Systems, Agentic AI &amp; Building PartnerAI</h4>
+                                        <p class="tl-date">2026</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Completed the IBM RAG and Agentic AI Specialization. Built PartnerAI — upload business documents and interact with them naturally. Retrieval-augmented, multi-agent, with dynamic chart generation. The project where everything finally connected: backend, AI, automation, data analysis, and architecture thinking — all in one system.</p>
+                                    <ul><li>IBM RAG &amp; Agentic AI Specialization</li><li>Multi-agent architecture — CrewAI</li><li>RAG pipeline — ChromaDB</li><li>Async backend — FastAPI</li><li>Python REPL execution tools</li><li>React + Vite frontend</li></ul>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-
-            <div class="projects-scroll-hint" id="projectsScrollHint">
-                <span class="projects-scroll-text">Scroll down for more</span>
-                <span class="projects-scroll-icon"><i class="fa-solid fa-hand-point-down"></i></span>
-            </div>
         </section>
 
+        <!-- ═══════════════════ SKILLS ═══════════════════ -->
         <section id="skills" class="skills-section">
-            <div class="skills-header">
-                <h2 class="section-title">Technical Skills</h2>
-                <p class="section-subtitle">Technologies, tools, and theories I work with and am familiar with</p>
+            <div class="section-header">
+                <h2 class="section-title">Technical <span class="amp">Skills</span></h2>
+                <p class="section-sub">Technologies, tools, and theories I work with</p>
             </div>
 
-            <h3>Technologies & Tools</h3>
-            <div class="skills-grid">
-                <span class="skill-tag">PHP</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">MySQL</span>
-                <span class="skill-tag">React</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">TailwindCSS</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">TypeScript</span>
-                <span class="skill-tag">C</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Django</span>
-                <span class="skill-tag">TensorFlow</span>
-                <span class="skill-tag">R</span>
-                <span class="skill-tag">Power BI</span>
-                <span class="skill-tag">Tableau</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Postman</span>
-                <span class="skill-tag">Bash Scripting</span>
-                <span class="skill-tag">Linux</span>
-                <span class="skill-tag">GitHub</span>
-            </div>
+            <div class="skills-inner">
 
-            <h3 style="margin-top: 30px;">Theories</h3>
-            <div class="skills-grid">
-                <span class="skill-tag">Data Structures & Algorithms</span>
-                <span class="skill-tag">OOP</span>
-                <span class="skill-tag">Database Normalization</span>
-                <span class="skill-tag">Computer Networks</span>
-                <span class="skill-tag">Digital Marketing</span>
-                <span class="skill-tag">Agile Development</span>
-                <span class="skill-tag">Project Management</span>
-                <span class="skill-tag">Organizational Behavior</span>
-            </div>
-        </section>
-
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="about-content">
-                <h2 class="about-title">About Me</h2>
-
-                <div class="about-text">
-                    <p>
-                        I’m an Information Systems undergraduate at the University of Colombo School of Computing
-                        (UCSC), passionate about building solutions that connect technology with real-world impact.
-                    </p>
-
-                    <p>
-                        My work focuses on automation systems, full-stack development, and database design. I enjoy
-                        transforming ideas into practical, user-focused software that improves efficiency and
-                        experience.
-                    </p>
-
-                    <p class="muted">
-                        Outside of coding, you’ll probably find me learning new frameworks, contributing to projects, or
-                        exploring creative ideas that challenge the ordinary.
-                    </p>
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Languages</h3>
+                    <div class="skill-cloud">
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">Bash</span>
+                    </div>
                 </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Frameworks &amp; Libraries</h3>
+                    <div class="skill-cloud">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">TailwindCSS</span>
+                        <span class="skill-tag">TensorFlow</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Tools &amp; Infrastructure</h3>
+                    <div class="skill-cloud">
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">GitHub</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Tableau</span>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <h3 class="skill-group-label">Concepts</h3>
+                    <div class="skill-cloud">
+                        <span class="skill-tag">Data Structures &amp; Algorithms</span>
+                        <span class="skill-tag">OOP</span>
+                        <span class="skill-tag">Database Normalisation</span>
+                        <span class="skill-tag">Computer Networks</span>
+                        <span class="skill-tag">Agile Development</span>
+                        <span class="skill-tag">Project Management</span>
+                        <span class="skill-tag">Digital Marketing</span>
+                    </div>
+                </div>
+
             </div>
         </section>
 
 
-        <!-- Contact Section -->
+        <!-- ═══════════════════ CONTACT ═══════════════════ -->
         <section id="contact" class="contact-section">
-            <div class="contact-content">
-                <h2 class="contact-title">Let's Connect</h2>
-
-                <p class="contact-description">
-                    Have a project in mind or want to collaborate? I'd love to hear from you. Drop me a message and
-                    let's create something amazing together.
-                </p>
-
-                <div class="contact-buttons">
+            <div class="contact-inner">
+                <h2 class="section-title">Let's <em>Connect</em></h2>
+                <p class="contact-sub">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+                <div class="contact-links">
                     <a href="mailto:chamal@example.com" class="btn btn-primary">
-                        <span><i class="fa-solid fa-envelope"></i></span>
-                        Email Me
+                        <i class="fa-solid fa-envelope"></i> Email Me
                     </a>
-
-                    <a href="https://www.linkedin.com" target="_blank" class="btn btn-secondary">
-                        <span><i class="fa-brands fa-linkedin"></i></span>
-                        LinkedIn
+                    <a href="https://www.linkedin.com" target="_blank" rel="noopener" class="btn btn-ghost">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
                     </a>
-
-                    <a href="https://github.com" target="_blank" class="btn btn-secondary">
-                        <span><i class="fa-brands fa-github"></i></span>
-                        GitHub
+                    <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-ghost">
+                        <i class="fa-brands fa-github"></i> GitHub
                     </a>
                 </div>
             </div>
         </section>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Theme Toggle
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
+    </div><!-- end .page-scroll -->
 
-            // Check for saved theme preference or default to dark
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            if (savedTheme === 'light') {
-                body.classList.add('light-mode');
-                themeToggle.innerHTML = `
-                    <i class="fa-solid fa-moon"></i>
-                `;
-            }
-
-            themeToggle.addEventListener('click', function () {
-                body.classList.toggle('light-mode');
-
-                if (body.classList.contains('light-mode')) {
-                    localStorage.setItem('theme', 'light');
-                    themeToggle.innerHTML = `
-                        <i class="fa-solid fa-moon"></i>
-                    `;
-                } else {
-                    localStorage.setItem('theme', 'dark');
-                    themeToggle.innerHTML = `
-                        <i class="fa-solid fa-sun"></i>
-                    `;
-                }
-            });
-
-            // Navigation
-            const navItems = document.querySelectorAll('.nav-item');
-            const container = document.querySelector('.vertical-scroll-container');
-
-            // Update active section on scroll
-            function updateActiveSection() {
-                const sections = document.querySelectorAll('section');
-                const scrollY = container.scrollTop;
-                const windowHeight = window.innerHeight;
-
-                let currentSectionId = '';
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-
-                    // A section is considered active if we've scrolled past its top by a bit
-                    // Using 1/3 window height as a buffer for better UX
-                    if (scrollY >= sectionTop - windowHeight / 3) {
-                        currentSectionId = section.id;
-                    }
-                });
-
-                if (currentSectionId) {
-                    navItems.forEach(item => {
-                        const dot = item.querySelector('.nav-dot');
-                        const label = item.querySelector('.nav-label');
-                        const isActive = item.getAttribute('data-section') === currentSectionId;
-
-                        if (dot) dot.classList.toggle('active', isActive);
-                        if (label) label.classList.toggle('active', isActive);
-
-                        // Scale the entire item slightly when active for dynamic feedback
-                        item.style.transform = isActive ? 'scale(1.15)' : 'scale(1)';
-                        item.style.opacity = isActive ? '1' : '0.7';
-                    });
-                }
-            }
-
-            // Smooth scroll to section
-            navItems.forEach(item => {
-                item.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const sectionId = this.getAttribute('data-section');
-                    const section = document.getElementById(sectionId);
-
-                    if (section) {
-                        container.scrollTo({
-                            top: section.offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // Initialize scroll listener
-            if (container) {
-                container.addEventListener('scroll', updateActiveSection, { passive: true });
-                // Also listen on window as a fallback in some environments
-                window.addEventListener('scroll', updateActiveSection, { passive: true });
-                updateActiveSection(); // Initial call
-            }
-
-            // Learning cards toggle
-            const learningCards = document.querySelectorAll('.learning-card');
-
-            learningCards.forEach(card => {
-                card.addEventListener('click', function () {
-                    const details = this.querySelector('.learning-details');
-                    const toggle = this.querySelector('.learning-toggle');
-
-                    if (details.style.display === 'block') {
-                        details.style.display = 'none';
-                        toggle.classList.remove('rotated');
-                        this.classList.remove('expanded');
-                    } else {
-                        details.style.display = 'block';
-                        toggle.classList.add('rotated');
-                        this.classList.add('expanded');
-                    }
-                });
-            });
-
-            // Projects scroll hint
-            const projectsContent = document.querySelector('.projects-content');
-            const projectsScrollHint = document.getElementById('projectsScrollHint');
-
-            projectsContent.addEventListener('scroll', function () {
-                if (this.scrollTop > 50) {
-                    projectsScrollHint.classList.add('hidden');
-                }
-            });
-
-            // Smooth scroll for hero buttons
-            const heroButtons = document.querySelectorAll('.hero-buttons a, .contact-buttons a');
-
-            heroButtons.forEach(button => {
-                if (button.getAttribute('href').startsWith('#')) {
-                    button.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const targetId = this.getAttribute('href').substring(1);
-                        const targetSection = document.getElementById(targetId);
-
-                        if (targetSection) {
-                            container.scrollTo({
-                                top: targetSection.offsetTop,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="./script.js"></script>
 </body>
-
 </html>
