@@ -1779,8 +1779,14 @@ body.dark .proj-thumb-overlay {
 }
 
 .li-badge-wrapper {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
+}
+
+/* Force hide the name link that LinkedIn's script auto-injects above the card */
+.LI-profile-badge .badge-base__link {
+    display: none !important;
 }

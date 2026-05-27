@@ -602,6 +602,18 @@
             <div class="contact-inner">
                 <h2 class="section-title">Let's <em>Connect</em></h2>
                 <p class="contact-sub">Have a project in mind or want to collaborate? I'd love to hear from you.</p>
+                <div class="li-badge-wrapper" id="linkedin-badge-container">
+                    <div id="my-li-badge" class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="light" data-type="VERTICAL" data-vanity="chamal-hettiarachchi" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/chamal-hettiarachchi?trk=profile-badge"></a></div>
+                    <script>
+                        (function() {
+                            const savedTheme = localStorage.getItem('wc-theme');
+                            if (savedTheme === 'dark') {
+                                document.getElementById('my-li-badge').setAttribute('data-theme', 'dark');
+                            }
+                        })();
+                    </script>
+                </div>
+
                 <div class="contact-links">
                     <a href="mailto:chamal@example.com" class="btn btn-primary">
                         <i class="fa-solid fa-envelope"></i> Email Me
@@ -609,10 +621,6 @@
                     <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-ghost">
                         <i class="fa-brands fa-github"></i> GitHub
                     </a>
-                </div>
-                
-                <div class="li-badge-wrapper" id="linkedin-badge-container">
-                    <!-- Badge injected by JS for theme support -->
                 </div>
             </div>
         </section>

@@ -18,16 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const saved = localStorage.getItem('wc-theme') || 'light';
     if (saved === 'dark') applyDark();
-    
-    // Initial LinkedIn badge render based on theme
-    updateLinkedInBadge(saved === 'dark' ? 'dark' : 'light');
-
     themeToggle.addEventListener('click', () => {
         if (document.body.classList.contains('dark')) {
             document.body.classList.remove('dark');
             themeIcon.className = 'fa-solid fa-moon';
             localStorage.setItem('wc-theme', 'light');
-            updateLinkedInBadge('light');
+            updateBadgeTheme('light');
         } else {
             applyDark();
         }
@@ -37,24 +33,23 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('dark');
         themeIcon.className = 'fa-solid fa-sun';
         localStorage.setItem('wc-theme', 'dark');
-        updateLinkedInBadge('dark');
+        updateBadgeTheme('dark');
     }
 
-    function updateLinkedInBadge(theme) {
+    function updateBadgeTheme(theme) {
         const badgeContainer = document.getElementById('linkedin-badge-container');
         if (badgeContainer) {
-            badgeContainer.innerHTML = `<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="${theme}" data-type="VERTICAL" data-vanity="chamal-hettiarachchi" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/chamal-hettiarachchi?trk=profile-badge">Chamal Hettiarachchi</a></div>`;
-            if (window.LIRenderAll) {
+            badgeContainer.innerHTML = `<div id="my-li-badge" class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="${theme}" data-type="VERTICAL" data-vanity="chamal-hettiarachchi" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/chamal-hettiarachchi?trk=profile-badge">Chamal Hettiarachchi</a></div>
+            <script>
+                (function() {
+                    const savedTheme = localStorage.getItem('wc-theme');
+                    if (savedTheme === 'dark') {
+                        document.getElementById('my-li-badge').setAttribute('data-theme', 'dark');
+                    }
+                })();
+            </script>`;
+            if (typeof window.LIRenderAll === 'function') {
                 try { window.LIRenderAll(); } catch(e) {}
-            } else {
-                const oldScript = document.getElementById('li-badge-script');
-                if (oldScript) oldScript.remove();
-                const newScript = document.createElement('script');
-                newScript.id = 'li-badge-script';
-                newScript.src = "https://platform.linkedin.com/badges/js/profile.js";
-                newScript.async = true;
-                newScript.defer = true;
-                document.head.appendChild(newScript);
             }
         }
     }
