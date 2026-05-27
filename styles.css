@@ -1774,8 +1774,13 @@ body.dark .proj-thumb-overlay {
 .lb-tech-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem;
+    gap: 0.5rem;
     margin-top: auto;
-    padding-top: 0.5rem;
-    border-top: 1px solid var(--border);
+}
+
+.li-badge-wrapper {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
