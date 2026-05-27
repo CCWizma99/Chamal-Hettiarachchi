@@ -128,3 +128,32 @@ Python REPL execution tools allowing agents to run Python code dynamically on da
 React + Vite frontend
 
 This project was one of the moments where multiple areas I had explored earlier — backend systems, AI, automation, data analysis, and architecture thinking — finally started connecting together into a single system.
+
+2026 — 2nd Year, Semester 2: Systems, Strategy & Real World Projects
+
+This semester was more focused on enterprise systems, data, cloud infrastructure, and user experience design.
+
+Subjects included:
+
+Information Systems Management and Strategy
+Data Management and Governance
+Applied Data Science
+UI/UX Design
+Cloud Infrastructure and Applications
+
+For the Data Management and Governance subject, we analyzed a real company and designed a complete data governance framework around its operations, policies, and data handling processes.
+
+In UI/UX Design, we worked on projects related to software modernization and experience design, focusing more on usability, workflows, and how users actually interact with systems instead of just building interfaces.
+
+This semester also marked the completion of our year-long group project: Colombo Sports E-Portal.
+
+It was a full-stack system developed for the Physical Education Department of the University of Colombo to help manage sports-related activities digitally.
+
+Some features and integrations included:
+
+PayHere payment gateway integration
+Brevo for automated emailing
+Role-based workflows and management features
+Handling multiple operational activities within the department through a centralized platform. There I was tasked with building the admin dashboad and 3rd party API integration.
+
+This project gave me real exposure to building larger systems with integrations, collaboration, deployment considerations, and handling practical operational requirements instead of just isolated features.

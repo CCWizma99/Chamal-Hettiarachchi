@@ -44,6 +44,10 @@
                 <div class="nav-dot"></div>
                 <span class="nav-label">Projects</span>
             </a>
+            <a href="#timeline" class="nav-item" data-section="timeline">
+                <div class="nav-dot"></div>
+                <span class="nav-label">Timeline</span>
+            </a>
             <a href="#skills"   class="nav-item" data-section="skills">
                 <div class="nav-dot"></div>
                 <span class="nav-label">Skills</span>
@@ -68,6 +72,10 @@
                 <a href="#projects" class="nav-item" data-section="projects">
                     <div class="nav-dot"></div>
                     <span class="nav-label">Projects</span>
+                </a>
+                <a href="#timeline" class="nav-item" data-section="timeline">
+                    <div class="nav-dot"></div>
+                    <span class="nav-label">Timeline</span>
                 </a>
                 <a href="#skills"   class="nav-item" data-section="skills">
                     <div class="nav-dot"></div>
@@ -104,8 +112,12 @@
             <!-- Pipeline strip — signature element -->
             <div class="pipeline-strip" id="pipelineStrip">
                 <p class="pipeline-eyebrow">How I work</p>
-                <div class="pipeline-row" id="pipelineRow">
-                    <!-- Nodes injected by JS -->
+                <!-- Agile feedback arc SVG — drawn by JS -->
+                <div class="pipeline-arc-wrap">
+                    <svg class="pipeline-arc-svg" id="pipelineArcSvg" aria-hidden="true"></svg>
+                    <div class="pipeline-row" id="pipelineRow">
+                        <!-- Nodes injected by JS -->
+                    </div>
                 </div>
                 <p class="pipeline-caption" id="pipelineCaption">— watch the flow —</p>
             </div>
@@ -126,8 +138,8 @@
         <!-- ═══════════════════ PROJECTS ═══════════════════ -->
         <section id="projects" class="projects-section">
             <div class="section-header">
-                <h2 class="section-title">Projects <span class="amp">&amp;</span> Learning</h2>
-                <p class="section-sub">Featured work and the journey behind it</p>
+                <h2 class="section-title">Featured <span class="amp">Projects</span></h2>
+                <p class="section-sub">Selected work that I have built</p>
             </div>
 
             <div class="projects-scroll scrollbar-thin">
@@ -137,11 +149,17 @@
                     <h3 class="group-label"><i class="fa-solid fa-star"></i> Featured</h3>
                     <div class="proj-grid">
 
-                        <a href="#" class="proj-card">
-                            <div class="proj-thumb proj-thumb--icon">
-                                <div class="proj-icon-bg proj-icon-bg--ai">
-                                    <i class="fa-solid fa-robot"></i>
-                                </div>
+                        <!-- PartnerAI -->
+                        <div class="proj-card" role="button" tabindex="0" id="card-partnerai"
+                             data-title="PartnerAI"
+                             data-badge="AI / RAG"
+                             data-badge-class="badge--ai"
+                             data-desc="Upload business documents (reports, datasets, PDFs) and interact with them naturally instead of manually digging through files. Rather than hallucinating, the system retrieves relevant context directly from uploaded data via a RAG pipeline before generating responses. It also generates dynamic charts for quick analysis. Built with a multi-agent CrewAI architecture (Business Analyst &amp; Data Scientist agents), a ChromaDB vector store, a FastAPI async backend, Python REPL execution tools that let agents run code live on datasets, and a React + Vite frontend."
+                             data-tech="Python,FastAPI,CrewAI,ChromaDB,React,Vite"
+                             data-media='[{"type":"image","src":"./images/partner-ai/PartnerAI.png","caption":"PartnerAI — main interface"},{"type":"video","src":"./images/partner-ai/PartnerAI-Video.mp4","caption":"PartnerAI — full demo walkthrough"}]'>
+                            <div class="proj-thumb">
+                                <img src="./images/partner-ai/PartnerAI.png" alt="PartnerAI" loading="lazy">
+                                <div class="proj-thumb-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
                             </div>
                             <div class="proj-body">
                                 <div class="proj-top">
@@ -159,84 +177,82 @@
                                     <span class="tech-tag">Vite</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
-                        <a href="#" class="proj-card">
-                            <div class="proj-thumb proj-thumb--icon">
-                                <div class="proj-icon-bg proj-icon-bg--web">
-                                    <i class="fa-solid fa-trophy"></i>
-                                </div>
+                        <!-- Colombo Sports E-Portal -->
+                        <div class="proj-card" role="button" tabindex="0" id="card-sports"
+                             data-title="Colombo Sports E-Portal"
+                             data-badge="Web"
+                             data-badge-class="badge--web"
+                             data-desc="A full-stack sports management system built for the Physical Education Department of the University of Colombo as a year-long group project. The platform digitally manages sports-related activities across the department — facility reservations, news, payments, and admin operations. I was specifically tasked with building the admin dashboard and handling third-party API integrations, including the PayHere payment gateway and Brevo for automated email workflows. The system handles role-based workflows and multiple operational activities through a centralized platform."
+                             data-tech="PHP,MySQL,PayHere,Brevo,JavaScript"
+                             data-media='[{"type":"image","src":"./images/colombo-sports/image_1.png","caption":"Facility reservation with live calendar"},{"type":"image","src":"./images/colombo-sports/image_2.png","caption":"Admin dashboard overview"},{"type":"image","src":"./images/colombo-sports/image_3.png","caption":"Equipment inventory management"},{"type":"image","src":"./images/colombo-sports/image_4.png","caption":"Equipment supplier reports and analytics"},{"type":"image","src":"./images/colombo-sports/image_5.png","caption":"Executive dashboard analytics"},{"type":"image","src":"./images/colombo-sports/image_6.png","caption":"Public landing page"}]'>
+                            <div class="proj-thumb">
+                                <img src="./images/colombo-sports/image_1.png" alt="Colombo Sports E-Portal" loading="lazy">
+                                <div class="proj-thumb-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
                             </div>
                             <div class="proj-body">
                                 <div class="proj-top">
                                     <span class="domain-badge badge--web">Web</span>
                                     <span class="proj-arrow">↗</span>
                                 </div>
-                                <h4 class="proj-name">University Sports Management</h4>
-                                <p class="proj-desc">Full-stack web application built during first-year coursework for managing university sports events, reservations, and participant tracking with email notifications.</p>
+                                <h4 class="proj-name">Colombo Sports E-Portal</h4>
+                                <p class="proj-desc">Year-long group project for UoC's Physical Education Department — facility reservations, PayHere payments, automated emails, and a full admin dashboard I built from scratch.</p>
                                 <div class="tech-row">
                                     <span class="tech-tag">PHP</span>
                                     <span class="tech-tag">MySQL</span>
+                                    <span class="tech-tag">PayHere</span>
                                     <span class="tech-tag">Brevo</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
-                        <a href="#" class="proj-card">
-                            <div class="proj-thumb proj-thumb--icon">
-                                <div class="proj-icon-bg proj-icon-bg--iot">
-                                    <i class="fa-solid fa-microchip"></i>
-                                </div>
-                            </div>
-                            <div class="proj-body">
-                                <div class="proj-top">
-                                    <span class="domain-badge badge--iot">IoT</span>
-                                    <span class="proj-arrow">↗</span>
-                                </div>
-                                <h4 class="proj-name">IoT Sensor System</h4>
-                                <p class="proj-desc">Physical computing project built with Arduino Uno and ESP32, integrating multiple sensors. Bridged the gap between software and the real world during 2nd year.</p>
-                                <div class="tech-row">
-                                    <span class="tech-tag">Arduino</span>
-                                    <span class="tech-tag">ESP32</span>
-                                    <span class="tech-tag">C++</span>
-                                </div>
-                            </div>
-                        </a>
-
-                        <a href="#" class="proj-card">
-                            <div class="proj-thumb proj-thumb--icon">
-                                <div class="proj-icon-bg proj-icon-bg--mobile">
-                                    <i class="fa-solid fa-mobile-screen-button"></i>
-                                </div>
+                        <!-- Codee Mobile -->
+                        <div class="proj-card" role="button" tabindex="0" id="card-codee"
+                             data-title="Codee — Android Code Editor"
+                             data-badge="Mobile"
+                             data-badge-class="badge--mobile"
+                             data-desc="An Android text editor built in Kotlin that goes beyond editing — it can actually compile and run code by communicating with a computer through an ADB connection. A Python backend on the computer side handles the incoming requests and manages the execution flow, then streams results back to the app. Built for the Mobile Application Design and Development module in 2nd year."
+                             data-tech="Kotlin,Python,ADB,Android"
+                             data-media='[{"type":"video","src":"./images/codee-mobile/CodeeDemo.mp4","caption":"Codee — live demo"},{"type":"image","src":"./images/codee-mobile/main.jpg","caption":"Codee — main editor view"},{"type":"image","src":"./images/codee-mobile/syntax.jpg","caption":"Syntax highlighting in action"},{"type":"image","src":"./images/codee-mobile/undo.jpg","caption":"Live syntax error detection"}]'>
+                            <div class="proj-thumb">
+                                <img src="./images/codee-mobile/main.jpg" alt="Codee Android Code Editor" loading="lazy">
+                                <div class="proj-thumb-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
                             </div>
                             <div class="proj-body">
                                 <div class="proj-top">
                                     <span class="domain-badge badge--mobile">Mobile</span>
                                     <span class="proj-arrow">↗</span>
                                 </div>
-                                <h4 class="proj-name">Android Code Editor</h4>
-                                <p class="proj-desc">A text editor for Android that could compile and run code by communicating with a computer over ADB. A Python backend handled execution requests.</p>
+                                <h4 class="proj-name">Codee — Android Code Editor</h4>
+                                <p class="proj-desc">A Kotlin Android text editor that compiles and runs code live via ADB — communicating with a Python backend on a connected computer for execution.</p>
                                 <div class="tech-row">
                                     <span class="tech-tag">Kotlin</span>
                                     <span class="tech-tag">Python</span>
                                     <span class="tech-tag">ADB</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
-                        <a href="#" class="proj-card">
-                            <div class="proj-thumb proj-thumb--icon">
-                                <div class="proj-icon-bg proj-icon-bg--web">
-                                    <i class="fa-solid fa-globe"></i>
-                                </div>
+                        <!-- WizGen Tech -->
+                        <div class="proj-card" role="button" tabindex="0" id="card-wizgen"
+                             data-title="WizGen Tech"
+                             data-badge="Web"
+                             data-badge-class="badge--web"
+                             data-desc="My first real-world web project, built post-A/Ls using pure HTML, CSS, JavaScript, and PHP without any frameworks. A content website with sections like BugTalk and P'Grammer, deployed on GoDaddy with cPanel hosting, SSL via Let's Encrypt, and monetised through Google AdSense. Also set up Google Search Console for search indexing and applied basic SEO practices. The project was eventually discontinued when university workload picked up, but it was a massive learning experience in how real websites are actually deployed, secured, indexed, and maintained."
+                             data-tech="HTML,CSS,PHP,cPanel,SEO,Google AdSense"
+                             data-media='[{"type":"image","src":"./images/wg-tech/image_1.png","caption":"WizGen Tech — homepage"},{"type":"image","src":"./images/wg-tech/image_2.png","caption":"BugTalk post creation editor"},{"type":"image","src":"./images/wg-tech/image_3.png","caption":"P&apos;Grammer lesson module"},{"type":"image","src":"./images/wg-tech/image_4.png","caption":"Detailed lesson view"},{"type":"image","src":"./images/wg-tech/image_5.png","caption":"Practical project module"}]'>
+                            <div class="proj-thumb">
+                                <img src="./images/wg-tech/image_1.png" alt="WizGen Tech" loading="lazy">
+                                <div class="proj-thumb-overlay"><i class="fa-solid fa-expand"></i> View Project</div>
                             </div>
                             <div class="proj-body">
                                 <div class="proj-top">
                                     <span class="domain-badge badge--web">Web</span>
                                     <span class="proj-arrow">↗</span>
                                 </div>
-                                <h4 class="proj-name">Content Website</h4>
-                                <p class="proj-desc">First real-world web project built post-A/Ls using raw HTML, CSS, JS &amp; PHP — deployed on GoDaddy with SSL, Google Search Console indexing, and AdSense monetisation.</p>
+                                <h4 class="proj-name">WizGen Tech</h4>
+                                <p class="proj-desc">First real-world web project post-A/Ls — a content website with SEO, SSL, cPanel hosting, and AdSense monetisation. Built from scratch without any framework.</p>
                                 <div class="tech-row">
                                     <span class="tech-tag">HTML</span>
                                     <span class="tech-tag">CSS</span>
@@ -245,11 +261,21 @@
                                     <span class="tech-tag">SEO</span>
                                 </div>
                             </div>
-                        </a>
+                        </div>
 
                     </div>
                 </div>
+            </div>
+        </section>
 
+        <!-- ═══════════════════ TIMELINE ═══════════════════ -->
+        <section id="timeline" class="projects-section">
+            <div class="section-header">
+                <h2 class="section-title">Learning <span class="amp">Timeline</span></h2>
+                <p class="section-sub">The journey behind my skills</p>
+            </div>
+
+            <div class="projects-scroll scrollbar-thin">
                 <!-- Learning Journey -->
                 <div class="proj-group">
                     <h3 class="group-label"><i class="fa-solid fa-rocket"></i> Learning Journey</h3>
@@ -261,110 +287,60 @@
                             <div class="tl-indicator-bubble">0%</div>
                         </div>
 
-                        <!-- 2023: First Steps -->
-                        <div class="tl-item">
-                            <div class="tl-card">
-                                <div class="tl-head">
-                                    <div>
-                                        <span class="tl-tag">Web Dev</span>
-                                        <h4 class="tl-title">First Steps — Building &amp; Deploying a Real Website</h4>
-                                        <p class="tl-date">2023</p>
-                                    </div>
-                                    <span class="tl-chevron">▾</span>
-                                </div>
-                                <div class="tl-body" style="display:none">
-                                    <p>After A/Ls, dove into web development using pure HTML, CSS, JavaScript, and PHP — no frameworks. Built and deployed a content website aiming for Google AdSense monetisation. Learned how real-world websites are deployed, secured, and maintained.</p>
-                                    <ul><li>cPanel / GoDaddy</li><li>Let's Encrypt SSL</li><li>Google Search Console</li><li>SEO Basics</li></ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 2023: Intensive Self-Learning -->
-                        <div class="tl-item">
-                            <div class="tl-card">
-                                <div class="tl-head">
-                                    <div>
-                                        <span class="tl-tag">Certifications</span>
-                                        <h4 class="tl-title">Intensive Self-Learning Phase</h4>
-                                        <p class="tl-date">2023</p>
-                                    </div>
-                                    <span class="tl-chevron">▾</span>
-                                </div>
-                                <div class="tl-body" style="display:none">
-                                    <p>Completed multiple professional certificate programs while exploring different areas of technology and digital systems at a rapid pace driven by pure curiosity.</p>
-                                    <ul><li>Python for Everybody — U of Michigan</li><li>Google Cybersecurity</li><li>Google Digital Marketing &amp; E-Commerce</li><li>Google Data Analytics</li></ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 2023: ML & AI -->
-                        <div class="tl-item">
-                            <div class="tl-card">
-                                <div class="tl-head">
-                                    <div>
-                                        <span class="tl-tag">AI / ML</span>
-                                        <h4 class="tl-title">Entering the Machine Learning &amp; AI Space</h4>
-                                        <p class="tl-date">2023</p>
-                                    </div>
-                                    <span class="tl-chevron">▾</span>
-                                </div>
-                                <div class="tl-body" style="display:none">
-                                    <p>Completed the Machine Learning Specialization by DeepLearning.AI (Andrew Ng). This became the foundation for exploring AI systems and fundamentally changed the way I approach problem-solving and system design.</p>
-                                    <ul><li>Supervised &amp; Unsupervised Learning</li><li>Neural Network Fundamentals</li><li>Scikit-learn / Keras / TensorFlow</li><li>Predictive Modeling</li></ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 2023: Networking -->
-                        <div class="tl-item">
-                            <div class="tl-card">
-                                <div class="tl-head">
-                                    <div>
-                                        <span class="tl-tag">Networking</span>
-                                        <h4 class="tl-title">Exploring Networking &amp; IT Foundations</h4>
-                                        <p class="tl-date">2023</p>
-                                    </div>
-                                    <span class="tl-chevron">▾</span>
-                                </div>
-                                <div class="tl-body" style="display:none">
-                                    <p>Explored networking and IT fundamentals through Cisco Networking Academy, earning multiple badges. Broadened understanding of how systems communicate, operate, and are secured beyond just software development.</p>
-                                    <ul><li>Cisco Networking Academy</li><li>Cybersecurity Fundamentals</li><li>Digital Infrastructure</li></ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- 2024: UCSC -->
+                        <!-- 2026: 2nd Year Sem 2 — LATEST FIRST -->
                         <div class="tl-item">
                             <div class="tl-card">
                                 <div class="tl-head">
                                     <div>
                                         <span class="tl-tag">University</span>
-                                        <h4 class="tl-title">Started Undergraduate Studies at UCSC</h4>
-                                        <p class="tl-date">2024 — Semester 1</p>
+                                        <span class="tl-tag">Web</span>
+                                        <span class="tl-tag tl-tag--active">Current</span>
+                                        <h4 class="tl-title">2nd Year Sem 2 — Systems, Strategy &amp; Real World Projects</h4>
+                                        <p class="tl-date">2026 — Semester 2</p>
                                     </div>
                                     <span class="tl-chevron">▾</span>
                                 </div>
                                 <div class="tl-body" style="display:none">
-                                    <p>Began my Information Systems degree at the University of Colombo School of Computing (UCSC), transitioning from self-directed learning into formal CS and systems education. Strengthened foundations in software engineering and collaborative development.</p>
-                                    <ul><li>Internet &amp; Web Application Development</li><li>Full-Stack Coursework Project</li><li>Management Studies (SWOT, Porter's Five Forces, PEST)</li></ul>
+                                    <p>This semester shifted toward enterprise thinking, data governance, cloud infrastructure, and user experience design. Subjects included Information Systems Management and Strategy, Data Management and Governance, Applied Data Science, UI/UX Design, and Cloud Infrastructure and Applications.</p>
+                                    <p>In <strong>Data Management and Governance</strong>, analyzed a real company and designed a complete data governance framework around its operations, policies, and data handling processes.</p>
+                                    <p>In <strong>UI/UX Design</strong>, worked on software modernization and experience design projects — focusing on usability, workflows, and how users actually interact with systems rather than just building interfaces.</p>
+                                    <p>This semester also marked the completion of the year-long group project: <strong>Colombo Sports E-Portal</strong> — a full-stack system built for the Physical Education Department of the University of Colombo to manage sports-related activities digitally. I was specifically tasked with building the <strong>admin dashboard and third-party API integrations</strong> (PayHere payment gateway + Brevo automated emailing). The project gave real exposure to building larger systems with integrations, collaboration, deployment considerations, and handling practical operational requirements.</p>
+                                    <ul>
+                                        <li>Information Systems Management &amp; Strategy</li>
+                                        <li>Data Management &amp; Governance — data governance framework design</li>
+                                        <li>Applied Data Science</li>
+                                        <li>UI/UX Design — software modernization &amp; usability</li>
+                                        <li>Cloud Infrastructure &amp; Applications</li>
+                                        <li>Colombo Sports E-Portal — admin dashboard + PayHere + Brevo</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 2024: Sem 2 -->
+                        <!-- 2026: RAG & PartnerAI -->
                         <div class="tl-item">
                             <div class="tl-card">
                                 <div class="tl-head">
                                     <div>
-                                        <span class="tl-tag">University</span>
-                                        <h4 class="tl-title">Semester 2 — Things Got Real</h4>
-                                        <p class="tl-date">2024 — Semester 2</p>
+                                        <span class="tl-tag">AI / RAG</span>
+                                        <span class="tl-tag tl-tag--active">Latest</span>
+                                        <h4 class="tl-title">RAG Systems, Agentic AI &amp; Building PartnerAI</h4>
+                                        <p class="tl-date">2026</p>
                                     </div>
                                     <span class="tl-chevron">▾</span>
                                 </div>
                                 <div class="tl-body" style="display:none">
-                                    <p>A heavy mix of systems, theory, networking, databases, and chaos. Started seeing how different parts of computing actually connect — including building a basic web server in C for Computer Networks.</p>
-                                    <ul><li>Systems Analysis &amp; Design (UML)</li><li>Database Systems</li><li>DSA — the classic grind</li><li>Computer Networks (built a web server in C)</li><li>Project Management</li></ul>
+                                    <p>Completed the <strong>IBM RAG and Agentic AI Specialization</strong> on Coursera — going deep into retrieval-augmented generation, agentic workflows, orchestration patterns, and how modern AI systems are actually engineered beyond just prompting an LLM.</p>
+                                    <p>Alongside the specialization, built <strong>PartnerAI</strong> — a system where you upload business documents (reports, datasets, PDFs) and interact with them naturally instead of manually digging through files. Rather than hallucinating, the system retrieves relevant context directly from uploaded data before generating responses. It also generates charts dynamically for quick analysis and decision-making.</p>
+                                    <p>This was the project where multiple areas I had explored earlier — backend systems, AI, automation, data analysis, and architecture thinking — finally started connecting together into a single coherent system.</p>
+                                    <ul>
+                                        <li>IBM RAG &amp; Agentic AI Specialization</li>
+                                        <li>Multi-agent architecture — CrewAI (Business Analyst &amp; Data Scientist agents)</li>
+                                        <li>RAG pipeline — ChromaDB for contextual retrieval</li>
+                                        <li>Async backend — FastAPI</li>
+                                        <li>Python REPL execution tools (agents run code dynamically on datasets)</li>
+                                        <li>React + Vite frontend</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -383,27 +359,167 @@
                                     <span class="tl-chevron">▾</span>
                                 </div>
                                 <div class="tl-body" style="display:none">
-                                    <p>More engineering-oriented. Built an Android text editor in Kotlin that could compile code over ADB, and an IoT project using Arduino Uno and ESP32. Software, hardware, networking, and automation started blending together.</p>
-                                    <ul><li>Advanced DSA</li><li>OOP</li><li>Mobile App Dev — Kotlin (Android Code Editor)</li><li>IoT — Arduino Uno &amp; ESP32</li><li>Information Systems Security</li><li>Business Process Management</li></ul>
+                                    <p>This semester had a more engineering-oriented feel compared to the earlier theory-heavy phases. Subjects included Advanced Data Structures and Algorithms, Object Oriented Programming, Information Systems Security, Mobile Application Design and Development, Business Process Management, and Electronics and Physical Computing.</p>
+                                    <p>For the mobile app development subject, built a <strong>text editor for Android using Kotlin</strong>. The interesting part: it could compile and run code by communicating with a computer through an ADB connection, where a Python backend handled the requests and execution flow.</p>
+                                    <p>For Electronics and Physical Computing, built an <strong>IoT project using Arduino Uno, ESP32, and multiple sensors</strong> — a subject that gave a completely different perspective on how software can interact with the physical world. Systems started becoming more interconnected: software, hardware, networking, and automation all started blending together.</p>
+                                    <ul>
+                                        <li>Advanced DSA</li>
+                                        <li>Object Oriented Programming</li>
+                                        <li>Mobile App Dev — Kotlin (Android Code Editor + ADB + Python backend)</li>
+                                        <li>Electronics &amp; Physical Computing — Arduino Uno &amp; ESP32</li>
+                                        <li>Information Systems Security</li>
+                                        <li>Business Process Management</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- 2026: RAG & PartnerAI -->
+                        <!-- 2024: Sem 2 -->
                         <div class="tl-item">
                             <div class="tl-card">
                                 <div class="tl-head">
                                     <div>
-                                        <span class="tl-tag">AI / RAG</span>
-                                        <span class="tl-tag tl-tag--active">Latest</span>
-                                        <h4 class="tl-title">RAG Systems, Agentic AI &amp; Building PartnerAI</h4>
-                                        <p class="tl-date">2026</p>
+                                        <span class="tl-tag">University</span>
+                                        <h4 class="tl-title">Semester 2 — Things Got Real</h4>
+                                        <p class="tl-date">2024 — Semester 2</p>
                                     </div>
                                     <span class="tl-chevron">▾</span>
                                 </div>
                                 <div class="tl-body" style="display:none">
-                                    <p>Completed the IBM RAG and Agentic AI Specialization. Built PartnerAI — upload business documents and interact with them naturally. Retrieval-augmented, multi-agent, with dynamic chart generation. The project where everything finally connected: backend, AI, automation, data analysis, and architecture thinking — all in one system.</p>
-                                    <ul><li>IBM RAG &amp; Agentic AI Specialization</li><li>Multi-agent architecture — CrewAI</li><li>RAG pipeline — ChromaDB</li><li>Async backend — FastAPI</li><li>Python REPL execution tools</li><li>React + Vite frontend</li></ul>
+                                    <p>A heavy mix of systems, theory, networking, databases — and a bit of chaos. Courses included Systems Analysis and Design, Project Management, Database Systems, Computer Networks, DSA, Statistics, and Organizational Behavior.</p>
+                                    <p>Learned UML diagrams and system modeling, project management principles, relational database thinking, and data structures and algorithms. In Computer Networks, even built a <strong>basic web server from scratch using C</strong> — which was one of those moments that made networking feel real and tangible rather than just theoretical.</p>
+                                    <p>This was the semester where different parts of computing started visibly connecting to each other.</p>
+                                    <ul>
+                                        <li>Systems Analysis &amp; Design — UML diagrams, system modeling</li>
+                                        <li>Database Systems — relational thinking, normalization</li>
+                                        <li>Data Structures &amp; Algorithms — the classic grind</li>
+                                        <li>Computer Networks — built a basic web server in C</li>
+                                        <li>Project Management principles</li>
+                                        <li>Statistics &amp; Organizational Behavior</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2024: UCSC Sem 1 -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">University</span>
+                                        <h4 class="tl-title">Started Undergraduate Studies at UCSC</h4>
+                                        <p class="tl-date">2024 — Semester 1</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Began my <strong>Information Systems degree at the University of Colombo School of Computing (UCSC)</strong>, marking the transition from self-directed learning to formal computer science and systems education. This phase helped strengthen foundational knowledge in software engineering, systems thinking, and collaborative development.</p>
+                                    <p>In the <strong>Internet &amp; Web Application Development</strong> course, built a full-stack web application as coursework — reinforcing frontend-backend integration and basic system design. Also completed a <strong>Management Studies project</strong>, analyzing a real-world company using strategic frameworks like SWOT, Porter's Five Forces, PEST analysis, Ansoff Matrix, and the 7Ps of Marketing.</p>
+                                    <p>While these were academic projects, they reinforced structured thinking, teamwork, and applying technical and business concepts in a formal setting.</p>
+                                    <ul>
+                                        <li>Internet &amp; Web Application Development</li>
+                                        <li>Full-Stack Coursework Project (frontend-backend integration)</li>
+                                        <li>Management Studies — SWOT, Porter's Five Forces, PEST, Ansoff Matrix, 7Ps</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2023: Networking -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">Networking</span>
+                                        <h4 class="tl-title">Exploring Networking &amp; IT Foundations</h4>
+                                        <p class="tl-date">2023</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>During the early self-learning phase, explored networking and IT fundamentals through <strong>Cisco Networking Academy</strong>, earning multiple badges while learning core concepts related to networking, cybersecurity, and digital infrastructure.</p>
+                                    <p>Although still figuring out the exact direction at the time, this exploration helped broaden my understanding of how systems communicate, operate, and are secured — going beyond just software development. Coming from a traditional learning environment, discovering self-paced online learning was a turning point that completely changed how I approached education.</p>
+                                    <ul>
+                                        <li>Cisco Networking Academy — multiple badges</li>
+                                        <li>Networking fundamentals — how systems communicate</li>
+                                        <li>Cybersecurity concepts &amp; digital infrastructure</li>
+                                        <li>Self-paced learning methodology</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2023: ML & AI -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">AI / ML</span>
+                                        <h4 class="tl-title">Entering the Machine Learning &amp; AI Space</h4>
+                                        <p class="tl-date">2023</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Completed the <strong>Machine Learning Specialization by DeepLearning.AI</strong>, taught by Andrew Ng. This became the foundation for exploring machine learning and AI systems — and one of the most impactful learning experiences of the self-study phase.</p>
+                                    <p>The specialization covered supervised and unsupervised learning, pattern recognition and predictive modeling, model training and evaluation, neural network fundamentals, and practical usage of Scikit-learn, Keras, and TensorFlow. It played a major role in shaping the interest in AI engineering and intelligent systems, while also fundamentally changing the way I approached problem-solving and system design.</p>
+                                    <ul>
+                                        <li>Machine Learning Specialization — DeepLearning.AI (Andrew Ng)</li>
+                                        <li>Supervised &amp; Unsupervised Learning</li>
+                                        <li>Pattern recognition &amp; predictive modeling</li>
+                                        <li>Neural network fundamentals</li>
+                                        <li>Scikit-learn, Keras, TensorFlow</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2023: Intensive Self-Learning -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">Certifications</span>
+                                        <h4 class="tl-title">Intensive Self-Learning Phase</h4>
+                                        <p class="tl-date">2023</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>During the months after A/Ls, completed multiple professional certificate programs and specializations while exploring different areas of technology and digital systems. This period helped build foundations across programming, cybersecurity, analytics, digital platforms, and problem-solving — while developing the habit of learning independently at a fast pace.</p>
+                                    <p>Most of this early learning journey was driven by curiosity rather than a fixed plan — simply diving deeper into whatever technology felt interesting at the time. The ability to explore topics freely, build things hands-on, and learn at my own pace created a level of excitement I had never experienced before in a traditional learning environment.</p>
+                                    <ul>
+                                        <li>Python for Everybody Specialization — University of Michigan</li>
+                                        <li>Google Cybersecurity Certificate</li>
+                                        <li>Google Digital Marketing &amp; E-Commerce Certificate</li>
+                                        <li>Google Data Analytics Certificate</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2023: First Steps -->
+                        <div class="tl-item">
+                            <div class="tl-card">
+                                <div class="tl-head">
+                                    <div>
+                                        <span class="tl-tag">Web Dev</span>
+                                        <h4 class="tl-title">First Steps — Building &amp; Deploying a Real Website</h4>
+                                        <p class="tl-date">2023</p>
+                                    </div>
+                                    <span class="tl-chevron">▾</span>
+                                </div>
+                                <div class="tl-body" style="display:none">
+                                    <p>Started learning web development after A/Ls using <strong>pure HTML, CSS, JavaScript, and PHP without frameworks</strong>. Built and deployed a content website with the goal of monetising it through Google AdSense — a real-world goal that forced learning how websites actually work end-to-end.</p>
+                                    <p>Worked hands-on with cPanel hosting on GoDaddy, SSL setup and free certificates from Let's Encrypt, domain and hosting management, search indexing through Google Search Console, and basic SEO and website optimisation. Although the project was eventually discontinued after university workload increased, it became an important learning experience in understanding how real-world websites are deployed, secured, indexed, and maintained.</p>
+                                    <ul>
+                                        <li>Pure HTML, CSS, JavaScript &amp; PHP (no frameworks)</li>
+                                        <li>cPanel hosting — GoDaddy</li>
+                                        <li>SSL setup — Let's Encrypt free certificates</li>
+                                        <li>Domain &amp; hosting management</li>
+                                        <li>Google Search Console — search indexing</li>
+                                        <li>Basic SEO &amp; website optimisation</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -425,15 +541,14 @@
                 <div class="skill-group">
                     <h3 class="skill-group-label">Languages</h3>
                     <div class="skill-cloud">
-                        <span class="skill-tag">PHP</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">TypeScript</span>
-                        <span class="skill-tag">C</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">JavaScript / TS</span>
+                        <span class="skill-tag">PHP</span>
+                        <span class="skill-tag">Kotlin</span>
+                        <span class="skill-tag">C / C++</span>
                         <span class="skill-tag">SQL</span>
                         <span class="skill-tag">Bash</span>
+                        <span class="skill-tag">HTML / CSS</span>
                     </div>
                 </div>
 
@@ -442,35 +557,38 @@
                     <div class="skill-cloud">
                         <span class="skill-tag">React</span>
                         <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">FastAPI</span>
                         <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Vite</span>
                         <span class="skill-tag">TailwindCSS</span>
-                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">CrewAI</span>
                     </div>
                 </div>
 
                 <div class="skill-group">
                     <h3 class="skill-group-label">Tools &amp; Infrastructure</h3>
                     <div class="skill-cloud">
-                        <span class="skill-tag">Docker</span>
                         <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">ChromaDB</span>
+                        <span class="skill-tag">Docker</span>
                         <span class="skill-tag">GitHub</span>
                         <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">cPanel</span>
                         <span class="skill-tag">Postman</span>
-                        <span class="skill-tag">Power BI</span>
-                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">ADB</span>
                     </div>
                 </div>
 
                 <div class="skill-group">
                     <h3 class="skill-group-label">Concepts</h3>
                     <div class="skill-cloud">
-                        <span class="skill-tag">Data Structures &amp; Algorithms</span>
-                        <span class="skill-tag">OOP</span>
-                        <span class="skill-tag">Database Normalisation</span>
-                        <span class="skill-tag">Computer Networks</span>
                         <span class="skill-tag">Agile Development</span>
+                        <span class="skill-tag">AI Agents &amp; RAG</span>
+                        <span class="skill-tag">UI/UX Design</span>
+                        <span class="skill-tag">SEO &amp; Analytics</span>
+                        <span class="skill-tag">Database Design</span>
+                        <span class="skill-tag">OOP / DSA</span>
                         <span class="skill-tag">Project Management</span>
-                        <span class="skill-tag">Digital Marketing</span>
                     </div>
                 </div>
 
@@ -498,6 +616,42 @@
         </section>
 
     </div><!-- end .page-scroll -->
+
+    <!-- ═══════════════ PROJECT LIGHTBOX MODAL ═══════════════ -->
+    <div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Project detail" style="display:none">
+        <div class="lb-panel">
+            <button class="lb-close" id="lbClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+
+            <!-- LEFT: Media column -->
+            <div class="lb-media-wrap">
+                <!-- Viewer + arrow overlay -->
+                <div class="lb-viewer-wrap">
+                    <div class="lb-viewer" id="lbViewer">
+                        <!-- filled by JS -->
+                    </div>
+                    <button class="lb-arrow lb-arrow--prev" id="lbPrev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button class="lb-arrow lb-arrow--next" id="lbNext" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+                <!-- Caption bar -->
+                <div class="lb-caption-bar">
+                    <span class="lb-caption" id="lbCaption"></span>
+                    <span class="lb-counter" id="lbCounter"></span>
+                </div>
+                <!-- Thumbnail strip — inside media column, not a sibling -->
+                <div class="lb-strip" id="lbStrip"></div>
+            </div>
+
+            <!-- RIGHT: Info panel -->
+            <div class="lb-info">
+                <div class="lb-info-header">
+                    <span class="lb-badge" id="lbBadge"></span>
+                    <h3 class="lb-title" id="lbTitle"></h3>
+                </div>
+                <p class="lb-desc" id="lbDesc"></p>
+                <div class="lb-tech-row" id="lbTech"></div>
+            </div>
+        </div>
+    </div>
 
     <script src="./script.js"></script>
 </body>
