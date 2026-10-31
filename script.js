@@ -467,6 +467,7 @@ function initPipelineObserver() {
     const desc     = document.getElementById('lbDesc');
     const techRow  = document.getElementById('lbTech');
     const repoLink = document.getElementById('lbRepo');
+    const linkedInLink = document.getElementById('lbLinkedIn');
 
     if (!overlay) return;
 
@@ -483,6 +484,12 @@ function initPipelineObserver() {
         badge.textContent = card.dataset.badge || '';
         title.textContent = card.dataset.title || '';
         desc.innerHTML    = card.dataset.desc  || '';
+        linkedInLink.hidden = !card.dataset.linkedin;
+        if (card.dataset.linkedin) {
+            linkedInLink.href = card.dataset.linkedin;
+        } else {
+            linkedInLink.removeAttribute('href');
+        }
         repoLink.hidden = !card.dataset.repo;
         if (card.dataset.repo) {
             repoLink.href = card.dataset.repo;

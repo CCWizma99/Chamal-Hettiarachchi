@@ -37,3 +37,7 @@ Removed the redundant category labels above timeline titles, including the yello
 - Codee: <https://github.com/CCWizma99/CodeeMobile> (Android app source and Codee documentation are present).
 
 No matching WizGen Tech repository was found in the account’s repository listing, so its gallery remains without a code link. Public visibility was checked for all four linked repositories. Repository links support mouse and keyboard activation without opening the project modal.
+
+## Pending Flood Timeline gallery update
+
+On local branch `content/flood-gallery-followups`, added the four original JPG screenshots supplied in the ZIP to `images/flood-timeline/`. The national overview is the project thumbnail; the gallery follows with district detail, scenario sandbox, and time travel simulation. Image bytes are preserved. The card and modal also link to the supplied LinkedIn post. These follow-up changes have not been pushed or merged into main.

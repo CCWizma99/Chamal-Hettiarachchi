@@ -215,18 +215,29 @@
                     <div class="proj-group">
                         <div class="proj-grid">
                             <div
-                                class="proj-card proj-card--text"
+                                class="proj-card"
                                 role="button"
                                 tabindex="0"
                                 id="card-flood"
+                                data-linkedin="https://www.linkedin.com/feed/update/urn:li:ugcPost:7483589237666177025/"
                                 data-repo="https://github.com/CCWizma99/KruthimaOps"
                                 data-title="Flood Timeline Sri Lanka"
                                 data-badge="Machine Learning / GIS"
                                 data-badge-class="badge--ai"
                                 data-desc="&lt;p&gt;&lt;strong&gt;Recognition:&lt;/strong&gt; 1st Runner-Up — MLOpsidian 2026&lt;/p&gt;&lt;p&gt;&lt;strong&gt;Team:&lt;/strong&gt; KruthimaOps&lt;/p&gt;&lt;p&gt;Flood Timeline Sri Lanka was developed during MLOpsidian 2026 to explore data-driven flood risk assessment across Sri Lanka&amp;#x27;s 25 districts.&lt;/p&gt;&lt;p&gt;The project involved working with a dataset of more than 20,000 records, addressing missing geospatial information, engineering rainfall and environmental features, and developing predictive models to estimate flood risk scores between 0 and 1.&lt;/p&gt;&lt;p&gt;Our modeling approach incorporated XGBoost, CatBoost, LightGBM, ensemble learning, and spatially aware validation. The platform used a FastAPI backend, weather information from Open-Meteo, geographic visualizations, and downloadable PDF reports to communicate risk estimates.&lt;/p&gt;&lt;p&gt;The project earned First Runner-Up recognition at MLOpsidian 2026.&lt;/p&gt;"
                                 data-tech="Python, XGBoost, CatBoost, LightGBM, FastAPI, GIS, Open-Meteo, Machine Learning"
-                                data-media="[]"
+                                data-media='[{"type": "image", "src": "./images/flood-timeline/national-overview.jpg", "caption": "Flood Timeline \u2014 national flood risk overview"}, {"type": "image", "src": "./images/flood-timeline/district-detail.jpg", "caption": "Flood Timeline \u2014 Kurunegala district detail"}, {"type": "image", "src": "./images/flood-timeline/scenario-sandbox.jpg", "caption": "Flood Timeline \u2014 scenario sandbox and rainfall sensitivity"}, {"type": "image", "src": "./images/flood-timeline/time-travel-simulation.jpg", "caption": "Flood Timeline \u2014 time travel simulation and national risk matrix"}]'
                             >
+                                <div class="proj-thumb">
+                                    <img
+                                        src="./images/flood-timeline/national-overview.jpg"
+                                        alt="Flood Timeline Sri Lanka — national flood risk map"
+                                        loading="lazy"
+                                    />
+                                    <div class="proj-thumb-overlay">
+                                        <i class="fa-solid fa-expand"></i> View Project
+                                    </div>
+                                </div>
                                 <div class="proj-body">
                                     <div class="proj-top">
                                         <span class="domain-badge badge--ai">Machine Learning / GIS</span
@@ -246,15 +257,24 @@
                                         ><span class="tech-tag">Open-Meteo</span
                                         ><span class="tech-tag">Machine Learning</span>
                                     </div>
-                                    <span class="project-details-label">Read project details →</span>
-                                    <a
-                                        class="project-code-link"
-                                        href="https://github.com/CCWizma99/KruthimaOps"
-                                        target="_blank"
-                                        rel="noopener"
-                                        aria-label="View Flood Timeline Sri Lanka code on GitHub"
-                                        >View Code ↗</a
-                                    >
+
+                                    <div class="project-link-row">
+                                        <a
+                                            class="project-code-link"
+                                            href="https://github.com/CCWizma99/KruthimaOps"
+                                            target="_blank"
+                                            rel="noopener"
+                                            aria-label="View Flood Timeline Sri Lanka code on GitHub"
+                                            >View Code ↗</a
+                                        ><a
+                                            class="project-code-link"
+                                            href="https://www.linkedin.com/feed/update/urn:li:ugcPost:7483589237666177025/"
+                                            target="_blank"
+                                            rel="noopener"
+                                            aria-label="View Flood Timeline Sri Lanka post on LinkedIn"
+                                            >View on LinkedIn ↗</a
+                                        >
+                                    </div>
                                 </div>
                             </div>
                             <div
@@ -910,7 +930,12 @@
                     </div>
                     <div class="lb-desc" id="lbDesc"></div>
                     <div class="lb-tech-row" id="lbTech"></div>
-                    <a class="project-code-link" id="lbRepo" target="_blank" rel="noopener" hidden>View Code ↗</a>
+                    <div class="project-link-row">
+                        <a class="project-code-link" id="lbRepo" target="_blank" rel="noopener" hidden>View Code ↗</a
+                        ><a class="project-code-link" id="lbLinkedIn" target="_blank" rel="noopener" hidden
+                            >View on LinkedIn ↗</a
+                        >
+                    </div>
                 </div>
             </div>
         </div>
