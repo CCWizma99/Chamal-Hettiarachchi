@@ -41,3 +41,7 @@ No matching WizGen Tech repository was found in the account’s repository listi
 ## Pending Flood Timeline gallery update
 
 On local branch `content/flood-gallery-followups`, added the four original JPG screenshots supplied in the ZIP to `images/flood-timeline/`. The national overview is the project thumbnail; the gallery follows with district detail, scenario sandbox, and time travel simulation. Image bytes are preserved. The card and modal also link to the supplied LinkedIn post. These follow-up changes have not been pushed or merged into main.
+
+## Pending content simplification
+
+Removed the Selected Highlights block from About. Replaced long dashes in displayed text, dates, metadata, gallery captions, and pipeline captions with words or simpler punctuation. These changes remain on the local follow-up branch.

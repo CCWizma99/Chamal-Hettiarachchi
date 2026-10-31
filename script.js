@@ -1,5 +1,5 @@
 /* ============================================================
-   Portfolio Script — Watercolor Pipeline Theme
+   Portfolio Script - Watercolor Pipeline Theme
    ============================================================ */
 
 const PIPE_STEPS = [
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('wc-theme', 'dark');
     }
 
-    /* ---------- NAV — IntersectionObserver ---------- */
+    /* ---------- NAV - IntersectionObserver ---------- */
     const sections  = document.querySelectorAll('section[id]');
     const navItems  = document.querySelectorAll('.nav-item[data-section]');
 
@@ -368,7 +368,7 @@ function resetPipeline() {
         c.fill.style.width = '0%';
         c.pkt.classList.remove('go');
     });
-    document.getElementById('pipelineCaption').textContent = '— watch the flow —';
+    document.getElementById('pipelineCaption').textContent = 'Watch the flow';
     resetArcs();
 }
 
@@ -405,7 +405,7 @@ async function runPipeline() {
             /* LEARN node */
             pipeNodeEls[i].classList.remove('active');
             pipeNodeEls[i].classList.add('done');
-            document.getElementById('pipelineCaption').textContent = '↩  Lessons carry forward — cycle restarts.';
+            document.getElementById('pipelineCaption').textContent = '↩  Lessons carry forward. The cycle restarts.';
             await sleep(500);
             lightReturnArc();
         }

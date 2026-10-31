@@ -604,7 +604,7 @@ body.dark .hero-name em {
     font-family: var(--font-mono);
 }
 
-/* Arc-wrap — relative context for SVG overlay */
+/* Arc-wrap - relative context for SVG overlay */
 .pipeline-arc-wrap {
     position: relative;
     display: flex;
@@ -612,7 +612,7 @@ body.dark .hero-name em {
     align-items: center;
 }
 
-/* SVG sits above the row — height controlled by JS */
+/* SVG sits above the row - height controlled by JS */
 .pipeline-arc-svg {
     position: absolute;
     left: 0;
@@ -1570,7 +1570,7 @@ body.dark .proj-thumb-overlay {
     transform: scale(1.1) rotate(90deg);
 }
 
-/* Left: media column — IS a flex column itself */
+/* Left: media column - IS a flex column itself */
 .lb-media-wrap {
     background: #000;
     border-radius: var(--r-lg) var(--r-lg) 0 0;
@@ -1623,7 +1623,7 @@ body.dark .proj-thumb-overlay {
     display: block;
 }
 
-/* Arrows — absolute inside lb-viewer-wrap */
+/* Arrows - absolute inside lb-viewer-wrap */
 .lb-arrow {
     position: absolute;
     top: 50%;
@@ -1793,10 +1793,7 @@ body.dark .proj-thumb-overlay {
 /* October 2026 content: reuse the existing palette, surfaces, and tags. */
 .hero-role { color: var(--text); font-size: 0.95rem; font-weight: 600; line-height: 1.6; margin-bottom: 0.8rem; }
 .about-inner { max-width: 900px; }
-.highlights-grid, .recognition-grid { display: grid; gap: 1rem; }
-.highlight-card { border: 1px solid var(--border); border-radius: var(--r-lg); padding: 1.2rem; background: var(--surface); }
-.highlight-card h4 { color: var(--text); line-height: 1.5; }
-.highlight-card p { color: var(--text-2); font-size: 0.88rem; line-height: 1.7; }
+.recognition-grid { display: grid; gap: 1rem; }
 .milestone-date { display: block; color: var(--text-3); font-size: 0.78rem; line-height: 1.6; margin: 0.4rem 0 0.6rem; }
 .proj-context { font-size: 0.78rem; color: var(--text-3); line-height: 1.6; margin-bottom: 0.6rem; }
 .proj-card--text .proj-body { height: 100%; display: flex; flex-direction: column; }
@@ -1818,7 +1815,6 @@ body.dark .tl-body a { color: var(--yellow); }
 .lb-overlay--text .lb-info { width: 100%; padding-top: 3.5rem; }
 :where(.tl-head, .proj-card, .btn):focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
 body.dark :where(.tl-head, .proj-card, .btn):focus-visible { outline-color: var(--yellow); }
-@media (min-width: 640px) { .highlights-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1024px) { .recognition-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .recognition { grid-column: 1 / -1; }
 @media (max-width: 639px) {
