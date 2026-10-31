@@ -45,3 +45,7 @@ On local branch `content/flood-gallery-followups`, added the four original JPG s
 ## Pending content simplification
 
 Removed the Selected Highlights block from About. Replaced long dashes in displayed text, dates, metadata, gallery captions, and pipeline captions with words or simpler punctuation. These changes remain on the local follow-up branch.
+
+## Skills layout preview
+
+Local branch `design/skills-section` replaces the wide skills tag cloud with five bounded category cards and a separate three-category learning and recognition area. All 45 skills and six recognition entries are retained. Cards use the existing palette, fonts, and theme variables, with inline SVG category icons. No proficiency scores or new achievement claims were added. This layout has not been pushed.
