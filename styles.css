@@ -1330,7 +1330,7 @@ body.dark .tl-tag--active {
 .skills-inner {
     width: 100%;
     max-width: 1180px;
-    margin-inline: auto;
+    margin-inline: 0;
 }
 
 .skills-grid {
