@@ -1790,3 +1790,44 @@ body.dark .proj-thumb-overlay {
 .LI-profile-badge .badge-base__link {
     display: none !important;
 }
+/* October 2026 content: reuse the existing palette, surfaces, and tags. */
+.hero-role { color: var(--text); font-size: 0.95rem; font-weight: 600; line-height: 1.6; margin-bottom: 0.8rem; }
+.about-inner { max-width: 900px; }
+.highlights-grid, .recognition-grid { display: grid; gap: 1rem; }
+.highlight-card { border: 1px solid var(--border); border-radius: var(--r-lg); padding: 1.2rem; background: var(--surface); }
+.highlight-card h4 { color: var(--text); line-height: 1.5; }
+.highlight-card p { color: var(--text-2); font-size: 0.88rem; line-height: 1.7; }
+.milestone-date { display: block; color: var(--text-3); font-size: 0.78rem; line-height: 1.6; margin: 0.4rem 0 0.6rem; }
+.proj-context { font-size: 0.78rem; color: var(--text-3); line-height: 1.6; margin-bottom: 0.6rem; }
+.proj-card--text .proj-body { height: 100%; display: flex; flex-direction: column; }
+.project-details-label { display: block; margin-top: auto; padding-top: 1.5rem; color: var(--blue); font-size: 0.8rem; }
+body.dark .project-details-label { color: var(--yellow); }
+.proj-top { align-items: flex-start; }
+.domain-badge { white-space: normal; }
+.tl-head { width: 100%; border: 0; background: none; text-align: left; color: inherit; font: inherit; cursor: pointer; }
+.tl-title, .tl-date { display: block; }
+.tl-body .tech-row { margin: 1rem 0; }
+.tl-body a { color: var(--blue); }
+body.dark .tl-body a { color: var(--yellow); }
+.recognition { margin-top: 2rem; }
+.recognition-group ul { list-style: none; padding: 0; }
+.recognition-group li { color: var(--text-2); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem; }
+.contact-sub p + p, .lb-desc p + p { margin-top: 1rem; }
+.lb-media-wrap[hidden] { display: none; }
+.lb-overlay--text .lb-panel { max-width: 700px; }
+.lb-overlay--text .lb-info { width: 100%; padding-top: 3.5rem; }
+:where(.tl-head, .proj-card, .btn):focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+body.dark :where(.tl-head, .proj-card, .btn):focus-visible { outline-color: var(--yellow); }
+@media (min-width: 640px) { .highlights-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .recognition-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.recognition { grid-column: 1 / -1; }
+@media (max-width: 639px) {
+    .pipeline-row { width: 100%; }
+    .pipe-node { flex: 1; min-width: 0; }
+    .pipe-box { width: 100%; max-width: 76px; height: 60px; }
+    .pipe-box span { font-size: 0.5rem; letter-spacing: 0; }
+    .pipe-connector { flex: 0 0 12px; }
+    .hero-name { overflow-wrap: anywhere; }
+}
+.linkedin-profile { margin: 0 0 1.5rem; color: var(--blue); font-size: 0.9rem; }
+body.dark .linkedin-profile { color: var(--yellow); }

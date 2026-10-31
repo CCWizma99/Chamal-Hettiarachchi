@@ -3,11 +3,11 @@
    ============================================================ */
 
 const PIPE_STEPS = [
-    { id: 'think',  icon: 'fa-lightbulb',  label: 'Think',  color: 'navy',   caption: 'Understand the problem before touching code.' },
-    { id: 'design', icon: 'fa-pen-ruler',  label: 'Design', color: 'blue',   caption: 'Architect a solution that scales and makes sense.' },
-    { id: 'build',  icon: 'fa-code',       label: 'Build',  color: 'lblue',  caption: 'Write clean, purposeful code.' },
-    { id: 'ship',   icon: 'fa-rocket',     label: 'Ship',   color: 'yellow', caption: 'Deploy, deliver, and put work into the world.' },
-    { id: 'learn',  icon: 'fa-book-open',  label: 'Learn',  color: 'blue',   caption: 'Reflect, iterate, and carry lessons forward.' },
+    { id: 'think',  icon: 'fa-lightbulb',  label: 'Think',  color: 'navy',   caption: 'Understand the problem before deciding on the solution.' },
+    { id: 'design', icon: 'fa-pen-ruler',  label: 'Design', color: 'blue',   caption: 'Turn requirements into a practical, maintainable design.' },
+    { id: 'build',  icon: 'fa-code',       label: 'Build',  color: 'lblue',  caption: 'Develop with purpose, clarity, and attention to detail.' },
+    { id: 'ship',   icon: 'fa-rocket',     label: 'Ship',   color: 'yellow', caption: 'Deliver working solutions, not just unfinished ideas.' },
+    { id: 'learn',  icon: 'fa-book-open',  label: 'Learn',  color: 'blue',   caption: 'Evaluate, improve, and carry lessons into the next iteration.' },
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.remove('dark');
             themeIcon.className = 'fa-solid fa-moon';
             localStorage.setItem('wc-theme', 'light');
-            updateBadgeTheme('light');
         } else {
             applyDark();
         }
@@ -33,25 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add('dark');
         themeIcon.className = 'fa-solid fa-sun';
         localStorage.setItem('wc-theme', 'dark');
-        updateBadgeTheme('dark');
-    }
-
-    function updateBadgeTheme(theme) {
-        const badgeContainer = document.getElementById('linkedin-badge-container');
-        if (badgeContainer) {
-            badgeContainer.innerHTML = `<div id="my-li-badge" class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="${theme}" data-type="VERTICAL" data-vanity="chamal-hettiarachchi" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://lk.linkedin.com/in/chamal-hettiarachchi?trk=profile-badge">Chamal Hettiarachchi</a></div>
-            <script>
-                (function() {
-                    const savedTheme = localStorage.getItem('wc-theme');
-                    if (savedTheme === 'dark') {
-                        document.getElementById('my-li-badge').setAttribute('data-theme', 'dark');
-                    }
-                })();
-            </script>`;
-            if (typeof window.LIRenderAll === 'function') {
-                try { window.LIRenderAll(); } catch(e) {}
-            }
-        }
     }
 
     /* ---------- NAV — IntersectionObserver ---------- */
@@ -89,12 +69,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* ---------- TIMELINE CARDS ---------- */
     document.querySelectorAll('.tl-card').forEach(card => {
-        card.addEventListener('click', () => {
+        const trigger = card.querySelector('.tl-head');
+        trigger.addEventListener('click', () => {
             const body = card.querySelector('.tl-body');
             if (!body) return;
             const open = body.style.display === 'block';
             body.style.display = open ? 'none' : 'block';
             card.classList.toggle('expanded', !open);
+            trigger.setAttribute('aria-expanded', String(!open));
         });
     });
     
@@ -468,6 +450,8 @@ function initPipelineObserver() {
 (function () {
     let currentIndex = 0;
     let mediaList    = [];
+    let mediaTimer;
+    let opener;
 
     const overlay  = document.getElementById('lbOverlay');
     const panel    = overlay?.querySelector('.lb-panel');
@@ -487,6 +471,8 @@ function initPipelineObserver() {
 
     /* Open lightbox for a given card element */
     function openLightbox(card) {
+        clearTimeout(mediaTimer);
+        opener = card;
         mediaList    = JSON.parse(card.dataset.media || '[]');
         currentIndex = 0;
 
@@ -526,7 +512,13 @@ function initPipelineObserver() {
             strip.appendChild(thumb);
         });
 
-        showMedia(0);
+        viewer.replaceChildren();
+        const hasMedia = mediaList.length > 0;
+        overlay.classList.toggle('lb-overlay--text', !hasMedia);
+        panel.querySelector('.lb-media-wrap').hidden = !hasMedia;
+        prevBtn.disabled = nextBtn.disabled = !hasMedia;
+        caption.textContent = counter.textContent = '';
+        if (hasMedia) showMedia(0);
 
         overlay.style.display = 'flex';
         document.body.style.overflow = 'hidden';
@@ -541,7 +533,8 @@ function initPipelineObserver() {
 
         /* Fade out → swap → fade in */
         viewer.style.opacity = '0';
-        setTimeout(() => {
+        clearTimeout(mediaTimer);
+        mediaTimer = setTimeout(() => {
             viewer.innerHTML = '';
             if (m.type === 'video') {
                 const vid = document.createElement('video');
@@ -577,11 +570,13 @@ function initPipelineObserver() {
     }
 
     function closeLightbox() {
+        clearTimeout(mediaTimer);
         /* Pause any playing video */
         const vid = viewer.querySelector('video');
         if (vid) { vid.pause(); vid.src = ''; }
         overlay.style.display = 'none';
         document.body.style.overflow = '';
+        opener?.focus();
     }
 
     /* Wire up events */
