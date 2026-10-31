@@ -1377,12 +1377,17 @@ body.dark .tl-tag--active {
     margin-bottom: 1.2rem;
 }
 
-.skill-card-heading h3 {
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: var(--text);
-    font-weight: 600;
+.skill-group-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    line-height: 1.6;
+    color: var(--text-muted);
 }
+
+.skill-card-heading h3 { margin: 0; }
 
 .skill-icon {
     display: grid;
@@ -1426,14 +1431,7 @@ body.dark .skill-icon { color: #A8B8E8; }
 }
 
 .recognition-heading { margin-bottom: 1.5rem; }
-.recognition-heading h3 {
-    font-family: var(--font-display);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--text);
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-.recognition-heading p { color: var(--text-3); font-size: 0.88rem; line-height: 1.6; }
+.recognition-heading p { line-height: 1.6; }
 .recognition-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 .recognition-group {
     min-width: 0;
@@ -1442,14 +1440,7 @@ body.dark .skill-icon { color: #A8B8E8; }
     border-radius: var(--r-lg);
     background: var(--surface);
 }
-.recognition-label {
-    color: var(--blue);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    margin-bottom: 1.25rem;
-}
-body.dark .recognition-label { color: #A8B8E8; }
+.recognition-label { margin-bottom: 1.25rem; }
 .recognition-group ul { list-style: none; padding: 0; }
 .recognition-group li { color: var(--text-2); font-size: 0.85rem; line-height: 1.6; }
 .recognition-group li + li { padding-top: 1rem; margin-top: 1rem; border-top: 1px solid var(--border); }
