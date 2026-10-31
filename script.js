@@ -466,6 +466,7 @@ function initPipelineObserver() {
     const title    = document.getElementById('lbTitle');
     const desc     = document.getElementById('lbDesc');
     const techRow  = document.getElementById('lbTech');
+    const repoLink = document.getElementById('lbRepo');
 
     if (!overlay) return;
 
@@ -482,6 +483,12 @@ function initPipelineObserver() {
         badge.textContent = card.dataset.badge || '';
         title.textContent = card.dataset.title || '';
         desc.innerHTML    = card.dataset.desc  || '';
+        repoLink.hidden = !card.dataset.repo;
+        if (card.dataset.repo) {
+            repoLink.href = card.dataset.repo;
+        } else {
+            repoLink.removeAttribute('href');
+        }
 
         techRow.innerHTML = '';
         (card.dataset.tech || '').split(',').forEach(t => {
@@ -599,8 +606,11 @@ function initPipelineObserver() {
 
     /* Attach click handler to every project card */
     document.querySelectorAll('.proj-card[data-media]').forEach(card => {
-        card.addEventListener('click', () => openLightbox(card));
+        card.addEventListener('click', e => {
+            if (!e.target.closest('a')) openLightbox(card);
+        });
         card.addEventListener('keydown', e => {
+            if (e.target.closest('a')) return;
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 openLightbox(card);
